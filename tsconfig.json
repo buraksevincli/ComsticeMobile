@@ -1,3 +1,27 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "compilerOptions": {
+    "target": "esnext", // Optimized output for modern devices
+    "module": "commonjs", // CommonJS module system (used in Node.js)
+    "jsx": "react-native", // Special configuration for React Native JSX
+    "strict": true, // Enable strict type checking
+    "noImplicitAny": true, // Disallow usage of 'any' type without explicit declaration
+    "strictNullChecks": true, // Enforce strict checking for 'null' and 'undefined'
+    "forceConsistentCasingInFileNames": true, // Prevent case-sensitive file name issues
+    "esModuleInterop": true, // Ensure compatibility with CommonJS modules
+    "moduleResolution": "node", // Specify module resolution strategy for Node.js
+    "skipLibCheck": true, // Skip type checking for library declaration files
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules without a default export
+    "resolveJsonModule": true, // Enable importing JSON files as modules
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"], // Shortcut for importing components
+      "@screens/*": ["src/screens/*"] // Shortcut for importing screens
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ] // Exclude unnecessary files and folders
 }
