@@ -7,9 +7,14 @@ import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
 interface InputFieldProps {
   placeholder: string;
   icon: any;
+  secureTextEntry?: boolean;
 }
 
-const InputField: React.FC<InputFieldProps> = ({placeholder, icon}) => {
+const InputField: React.FC<InputFieldProps> = ({
+  placeholder,
+  icon,
+  secureTextEntry = false,
+}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
 
@@ -20,6 +25,7 @@ const InputField: React.FC<InputFieldProps> = ({placeholder, icon}) => {
         style={[styles.input, {color: colors.white}]}
         placeholder={placeholder}
         placeholderTextColor={colors.white}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );

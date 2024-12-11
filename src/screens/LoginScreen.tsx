@@ -37,6 +37,7 @@ const LoginScreen: React.FC = () => {
       <InputField
         placeholder="Password"
         icon={require('../assets/images/icons/password-icon.png')}
+        secureTextEntry={true}
       />
       <CheckboxWithLabel label="Remember Me" />
       <LoginButton onPress={handleLogin} />
