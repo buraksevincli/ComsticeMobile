@@ -6,32 +6,47 @@ import MessagesScreen from '../screens/MessagesScreen';
 import PreferencesScreen from '../screens/PreferencesScreen';
 import TasksScreen from '../screens/TasksScreen';
 import {Colors} from '../constants/colors';
-import {scaleFont} from '../utils/responsive';
-import {useColorScheme} from 'react-native';
+import {scaleFont, scaleHeight, scaleWidth} from '../utils/responsive';
+import {useColorScheme, Image, TouchableOpacity} from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
-const DrawerNavigator: React.FC = () => {
+const DrawerNavigator: React.FC = ({navigation}: any) => {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomDrawerContent {...props} />}
       screenOptions={{
         headerShown: true,
         headerTitleStyle: {
-          fontSize: scaleFont(20), // Header title text size
+          fontSize: scaleFont(20),
         },
         headerStyle: {
-          backgroundColor: Colors(isDarkMode).primaryBackground, // Header background color
+          backgroundColor: Colors(isDarkMode).primaryBackground,
         },
-        headerTintColor: Colors(isDarkMode).headerText, // Header text color
-        headerTitleAlign: 'center', // Center the header title
+        headerTintColor: Colors(isDarkMode).headerText,
+        headerTitleAlign: 'center',
         drawerStyle: {
-          backgroundColor: Colors(isDarkMode).primaryBackground, // Drawer background color
+          backgroundColor: Colors(isDarkMode).primaryBackground,
         },
         drawerLabelStyle: {
-          color: Colors(isDarkMode).error, // Drawer label text color
+          color: Colors(isDarkMode).error,
         },
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Keypad')}
+            style={{marginRight: 16}}>
+            <Image
+              source={require('../assets/images/icons/grid-icon.png')}
+              style={{
+                width: scaleWidth(24),
+                height: scaleHeight(24),
+                tintColor: Colors(isDarkMode).headerText,
+              }}
+            />
+          </TouchableOpacity>
+        ),
       }}>
       <Drawer.Screen name="Calls" component={CallsScreen} />
       <Drawer.Screen name="Tasks" component={TasksScreen} />
