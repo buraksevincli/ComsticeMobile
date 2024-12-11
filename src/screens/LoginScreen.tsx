@@ -12,6 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/AppNavigator';
+import SettingsButton from '../components/buttons/SettingsButton';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -30,6 +31,10 @@ const LoginScreen: React.FC = () => {
     });
   };
 
+  const handleSettings = () => {
+    navigation.navigate('Settings');
+  };
+
   return (
     <View
       style={[styles.container, {backgroundColor: colors.primaryBackground}]}>
@@ -45,6 +50,7 @@ const LoginScreen: React.FC = () => {
       />
       <CheckboxWithLabel label="Remember Me" />
       <LoginButton onPress={handleLogin} />
+      <SettingsButton onPress={handleSettings} />
       <Footer />
     </View>
   );

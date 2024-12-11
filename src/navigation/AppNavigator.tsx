@@ -5,11 +5,13 @@ import DrawerNavigator from './DrawerNavigator';
 import KeypadScreen from '../screens/KeypadScreen';
 import {Colors} from '../constants/colors';
 import {useColorScheme} from 'react-native';
+import SettingsScreen from '../screens/Settings';
 
 export type RootStackParamList = {
   Login: undefined;
   Home: undefined;
   Keypad: undefined;
+  Settings: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -42,6 +44,13 @@ const AppNavigator: React.FC = () => {
         component={KeypadScreen}
         options={{
           title: 'Keypad',
+        }}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          title: 'Settings',
         }}
       />
     </Stack.Navigator>
