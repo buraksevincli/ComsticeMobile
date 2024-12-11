@@ -37,7 +37,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
             source={require('../../assets/images/icons/profile-icon.png')} // Dummy profile picture
             style={styles.profileImage}
           />
-          <Text style={styles.profileName}>Verna Harrison</Text>
+          <Text style={styles.profileName}>Burak Sevincli</Text>
         </View>
 
         {/* Availability */}
@@ -112,7 +112,14 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
       />
 
       {/* Sign Out */}
-      <TouchableOpacity style={styles.signOut}>
+      <TouchableOpacity
+        style={styles.signOut}
+        onPress={() => {
+          props.navigation.reset({
+            index: 0,
+            routes: [{name: 'Login'}],
+          });
+        }}>
         <Image
           source={require('../../assets/images/icons/exit-icon.png')}
           style={styles.icon}

@@ -24,7 +24,10 @@ const LoginScreen: React.FC = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const handleLogin = () => {
-    navigation.navigate('Home');
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Home'}],
+    });
   };
 
   return (
