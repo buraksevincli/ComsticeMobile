@@ -1,18 +1,27 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
-import {Colors} from '../../constants/colors';
 import {useColorScheme} from 'react-native';
+import {Colors} from '../../constants/colors';
 import {scaleWidth, scaleHeight} from '../../utils/responsive';
 
-const LogoHeader: React.FC = () => {
+interface LogoHeaderProps {
+  logoUri?: string;
+}
+
+const LogoHeader: React.FC<LogoHeaderProps> = ({logoUri}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
+
+  const defaultLogo = require('../../assets/images/logos/safetime-logo.png');
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/images/logos/safetime-logo.png')}
-        style={[styles.logo, {tintColor: colors.headerText}]}
+        source={logoUri ? {uri: logoUri} : defaultLogo}
+        style={[
+          styles.logo,
+          {tintColor: logoUri ? undefined : colors.headerText},
+        ]}
       />
     </View>
   );

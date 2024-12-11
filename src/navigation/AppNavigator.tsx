@@ -3,9 +3,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
 import DrawerNavigator from './DrawerNavigator';
 import KeypadScreen from '../screens/KeypadScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import {Colors} from '../constants/colors';
 import {useColorScheme} from 'react-native';
-import SettingsScreen from '../screens/Settings';
 
 export type RootStackParamList = {
   Login: undefined;

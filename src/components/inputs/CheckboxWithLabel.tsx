@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Colors} from '../../constants/colors';
 import {useColorScheme} from 'react-native';
@@ -6,23 +6,33 @@ import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
 
 interface CheckboxWithLabelProps {
   label: string;
+  value: boolean;
+  onChange: () => void;
+  labelColor?: string;
+  borderColor?: string;
 }
 
-const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({label}) => {
-  const [checked, setChecked] = useState(false);
+const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
+  label,
+  value,
+  onChange,
+  labelColor,
+  borderColor,
+}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
 
+  const resolvedLabelColor = labelColor || colors.headerText;
+  const resolvedBorderColor = borderColor || colors.headerText;
+
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => setChecked(!checked)}>
-      <Text style={[styles.label, {color: colors.headerText}]}>{label}</Text>
+    <TouchableOpacity style={styles.container} onPress={onChange}>
+      <Text style={[styles.label, {color: resolvedLabelColor}]}>{label}</Text>
       <View
         style={[
           styles.checkbox,
-          {borderColor: colors.headerText},
-          checked && {backgroundColor: colors.headerText},
+          {borderColor: resolvedBorderColor},
+          value && {backgroundColor: colors.primaryBackground},
         ]}
       />
     </TouchableOpacity>
@@ -44,7 +54,8 @@ const styles = StyleSheet.create({
     marginLeft: scaleWidth(8),
   },
   label: {
-    fontSize: scaleFont(12),
+    fontSize: scaleFont(14),
+    fontWeight: '400',
   },
 });
 
