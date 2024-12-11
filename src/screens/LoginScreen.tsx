@@ -8,10 +8,24 @@ import Footer from '../components/footers/Footer';
 import {useColorScheme} from 'react-native';
 import {Colors} from '../constants/colors';
 import {scaleWidth} from '../utils/responsive';
+import {useNavigation} from '@react-navigation/native';
+
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../navigation/AppNavigator';
+
+type LoginScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Login'
+>;
 
 const LoginScreen: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
+  const navigation = useNavigation<LoginScreenNavigationProp>();
+
+  const handleLogin = () => {
+    navigation.navigate('Calls');
+  };
 
   return (
     <View style={[styles.container, {backgroundColor: colors.primary}]}>
@@ -25,7 +39,7 @@ const LoginScreen: React.FC = () => {
         icon={require('../assets/images/icons/password-icon.png')}
       />
       <CheckboxWithLabel label="Remember Me" />
-      <LoginButton onPress={() => console.log('Login Pressed')} />
+      <LoginButton onPress={handleLogin} />
       <Footer />
     </View>
   );
