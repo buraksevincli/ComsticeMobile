@@ -14,9 +14,9 @@ const LoginButton: React.FC<LoginButtonProps> = ({onPress}) => {
 
   return (
     <TouchableOpacity
-      style={[styles.button, {backgroundColor: colors.green}]}
+      style={[styles.button, {backgroundColor: colors.primaryButton}]}
       onPress={onPress}>
-      <Text style={[styles.text, {color: colors.white}]}>Login</Text>
+      <Text style={[styles.text, {color: colors.headerText}]}>Login</Text>
     </TouchableOpacity>
   );
 };

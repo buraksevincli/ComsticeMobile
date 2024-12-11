@@ -24,11 +24,12 @@ const LoginScreen: React.FC = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const handleLogin = () => {
-    navigation.navigate('Calls');
+    navigation.navigate('Home');
   };
 
   return (
-    <View style={[styles.container, {backgroundColor: colors.primary}]}>
+    <View
+      style={[styles.container, {backgroundColor: colors.primaryBackground}]}>
       <LogoHeader />
       <InputField
         placeholder="User ID"

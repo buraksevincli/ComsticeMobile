@@ -17,12 +17,12 @@ const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({label}) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => setChecked(!checked)}>
-      <Text style={[styles.label, {color: colors.white}]}>{label}</Text>
+      <Text style={[styles.label, {color: colors.headerText}]}>{label}</Text>
       <View
         style={[
           styles.checkbox,
-          {borderColor: colors.white},
-          checked && {backgroundColor: colors.white},
+          {borderColor: colors.headerText},
+          checked && {backgroundColor: colors.headerText},
         ]}
       />
     </TouchableOpacity>

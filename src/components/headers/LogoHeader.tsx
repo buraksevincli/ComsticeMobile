@@ -12,7 +12,7 @@ const LogoHeader: React.FC = () => {
     <View style={styles.container}>
       <Image
         source={require('../../assets/images/logos/safetime-logo.png')}
-        style={[styles.logo, {tintColor: colors.secondary}]}
+        style={[styles.logo, {tintColor: colors.headerText}]}
       />
     </View>
   );

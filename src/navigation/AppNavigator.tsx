@@ -1,11 +1,11 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
-import CallsScreen from '../screens/CallsScreen';
+import DrawerNavigator from './DrawerNavigator';
 
 export type RootStackParamList = {
   Login: undefined;
-  Calls: undefined;
+  Home: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -16,7 +16,7 @@ const AppNavigator: React.FC = () => {
       initialRouteName="Login"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Calls" component={CallsScreen} />
+      <Stack.Screen name="Home" component={DrawerNavigator} />
     </Stack.Navigator>
   );
 };

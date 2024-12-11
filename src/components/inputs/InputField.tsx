@@ -19,12 +19,12 @@ const InputField: React.FC<InputFieldProps> = ({
   const colors = Colors(isDarkMode);
 
   return (
-    <View style={[styles.container, {borderColor: colors.white}]}>
+    <View style={[styles.container, {borderColor: colors.headerText}]}>
       <Image source={icon} style={styles.icon} />
       <TextInput
-        style={[styles.input, {color: colors.white}]}
+        style={[styles.input, {color: colors.headerText}]}
         placeholder={placeholder}
-        placeholderTextColor={colors.white}
+        placeholderTextColor={colors.headerText}
         secureTextEntry={secureTextEntry}
       />
     </View>

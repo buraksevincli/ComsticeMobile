@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
 
   return (
     <View style={[styles.container]}>
-      <Text style={[styles.text, {color: colors.white}]}>Created by</Text>
+      <Text style={[styles.text, {color: colors.headerText}]}>Created by</Text>
       <Image
         source={require('../../assets/images/logos/comstice-logo.png')}
         style={styles.logo}
