@@ -72,10 +72,6 @@ const SettingsScreen: React.FC = () => {
         </View>
       </View>
 
-      <Text style={[styles.statusText, {color: colors.secondaryText}]}>
-        Waiting for get agent settings.
-      </Text>
-
       <View style={styles.checkboxContainer}>
         <CheckboxWithLabel
           label="Voice Over Internet"
@@ -125,11 +121,6 @@ const styles = StyleSheet.create({
   flexButton: {
     flex: 1,
     marginLeft: scaleWidth(8),
-  },
-  statusText: {
-    textAlign: 'center',
-    marginTop: scaleHeight(16),
-    fontSize: scaleFont(14),
   },
   checkboxContainer: {
     marginTop: scaleHeight(32),

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TextInput, StyleSheet, Text} from 'react-native';
+import {View, TextInput, StyleSheet, Text, Platform} from 'react-native';
 import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
 import {useColorScheme} from 'react-native';
 import {Colors} from '../../constants/colors';
@@ -19,7 +19,7 @@ const SettingsInputField: React.FC<SettingsInputFieldProps> = ({
   const colors = Colors(isDarkMode);
 
   return (
-    <View style={[styles.container, {borderColor: colors.primaryText}]}>
+    <View style={[styles.container, {borderColor: colors.secondaryText}]}>
       <TextInput
         style={[styles.input, {color: colors.primaryText}]}
         placeholder={placeholder}
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     borderRadius: scaleWidth(8),
     marginVertical: scaleHeight(10),
     paddingHorizontal: scaleWidth(15),
-    paddingVertical: scaleHeight(10),
+    paddingVertical:
+      Platform.OS === 'android' ? scaleHeight(4) : scaleHeight(10),
   },
   input: {
     fontSize: scaleFont(16),
