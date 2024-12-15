@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: scaleFont(12),
-    marginRight: scaleWidth(4),
+    marginRight: scaleWidth(2),
   },
   logo: {
     width: scaleWidth(100),
     height: scaleHeight(30),
     resizeMode: 'contain',
-    marginLeft: scaleWidth(4),
+    marginLeft: scaleWidth(2),
   },
 });
 

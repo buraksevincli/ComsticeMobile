@@ -32,7 +32,7 @@ const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({
         style={[
           styles.checkbox,
           {borderColor: resolvedBorderColor},
-          value && {backgroundColor: colors.primaryBackground},
+          value && {backgroundColor: colors.primaryButton},
         ]}
       />
     </TouchableOpacity>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     width: scaleWidth(16),
-    height: scaleHeight(16),
+    height: scaleWidth(16),
     borderWidth: 1,
     borderRadius: scaleWidth(4),
     marginLeft: scaleWidth(8),

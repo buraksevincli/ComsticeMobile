@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <RNCallKeep/RNCallKeep.h>
 
 @implementation AppDelegate
 
@@ -10,8 +11,16 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
+  
+  [RNCallKeep setup:@{
+     @"appName": @"ComsticeMobile",
+     @"maximumCallGroups": @3,
+     @"maximumCallsPerCallGroup": @1,
+     @"supportsVideo": @NO,
+   }];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+//  return YES;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

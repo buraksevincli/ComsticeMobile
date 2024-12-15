@@ -14,7 +14,7 @@ const LightThemeColors = {
   link: '#007AFF', // Hyperlinks
 
   // Status colors
-  error: '#FF3B30', // Red for errors
+  error: 'rgb(253, 36, 101)', // Red for errors
   success: 'rgb(84, 201, 111)', // Green for success states
   warning: '#FFCC00', // Yellow for warnings
   info: '#5AC8FA', // Light blue for info messages
@@ -43,7 +43,7 @@ const DarkThemeColors = {
   link: '#5AC8FA', // Hyperlinks
 
   // Status colors
-  error: '#FF453A', // Brighter red for errors
+  error: 'rgb(253, 36, 101)', // Brighter red for errors
   success: 'rgb(48, 209, 88)', // Bright green for success states
   warning: '#FFCC00', // Yellow for warnings
   info: '#5AC8FA', // Light blue for info messages

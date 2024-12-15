@@ -34,7 +34,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         {/* Profile Section */}
         <View style={styles.profileSection}>
           <Image
-            source={require('../../assets/images/icons/profile-icon.png')} // Dummy profile picture
+            source={require('../../assets/images/icons/profile-icon.png')}
             style={styles.profileImage}
           />
           <Text style={styles.profileName}>Burak Sevincli</Text>
@@ -150,16 +150,17 @@ const createStyles = (isDarkMode: boolean) =>
     profileSection: {
       flexDirection: 'row',
       alignItems: 'center',
+      marginBottom: scaleWidth(10),
     },
     profileImage: {
       width: scaleWidth(45),
-      height: scaleHeight(45),
+      height: scaleWidth(45),
       borderRadius: scaleWidth(40),
       marginBottom: scaleHeight(10),
     },
     profileName: {
       fontSize: scaleFont(18),
-      lineHeight: scaleHeight(18),
+      lineHeight: scaleWidth(18),
       color: Colors(isDarkMode).headerText,
       marginBottom: scaleHeight(5),
       marginLeft: scaleWidth(15),

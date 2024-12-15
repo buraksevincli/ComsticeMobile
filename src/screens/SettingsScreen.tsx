@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: scaleWidth(24),
     right: scaleWidth(24),
-    bottom: scaleHeight(70),
+    bottom: scaleHeight(50),
   },
 });
 
