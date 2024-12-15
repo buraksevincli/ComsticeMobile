@@ -11,7 +11,7 @@ interface LoginButtonProps {
   fullWidth?: boolean;
 }
 
-const LoginButton: React.FC<LoginButtonProps> = ({
+const CustomButton: React.FC<LoginButtonProps> = ({
   title,
   onPress,
   color,
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginButton;
+export default CustomButton;

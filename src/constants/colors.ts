@@ -7,6 +7,8 @@ const LightThemeColors = {
   placeholderText: '#B0BEC5', // Text used in inputs
   headerText: 'white', // Text specifically for headers
   footerText: '#8E8E93', // Footer text gray
+  blackText: 'black',
+  lightGray: 'lightgray',
 
   // Interactive colors (buttons, links, etc.)
   primaryButton: 'rgb(84, 201, 111)', // Green for buttons
@@ -36,6 +38,8 @@ const DarkThemeColors = {
   placeholderText: '#CCCCCC', // Text used in inputs
   headerText: '#FFFFFF', // Text specifically for headers
   footerText: '#AAAAAA', // Footer text gray
+  blackText: 'black',
+  lightGray: 'lightgray',
 
   // Interactive colors (buttons, links, etc.)
   primaryButton: 'rgb(48, 209, 88)', // Bright green for buttons
