@@ -1,19 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, FlatList, Text, StyleSheet, Image} from 'react-native';
 import SearchInput from '../inputs/SearchInput';
 import CustomButton from '../buttons/CustomButton';
 import {scaleFont, scaleHeight, scaleWidth} from '../../utils/Responsive';
 import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
-import {Contact} from '../../screens/PhoneBookScreen';
 import LoadingOverlay from '../../components/common/LoadingOverlay';
-
-interface CorporateContact extends Contact {
-  company: string;
-}
+import {CorporateDirectoryContact} from 'src/services/CorporateDirectoryService';
 
 interface CorporateDirectoryListProps {
-  data: CorporateContact[];
+  data: CorporateDirectoryContact[];
   isLoading: boolean;
   searchParams: {
     name: string;
@@ -40,7 +36,9 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
 
-  const [filteredData, setFilteredData] = useState<CorporateContact[]>([]);
+  const [filteredData, setFilteredData] = useState<CorporateDirectoryContact[]>(
+    [],
+  );
 
   const handleInputChange = (field: string, value: string) => {
     setSearchParams(prev => ({...prev, [field]: value}));

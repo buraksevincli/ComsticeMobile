@@ -1,12 +1,12 @@
 import React from 'react';
 import {SectionList, View, Text, StyleSheet, Image} from 'react-native';
-import {Contact} from '../../screens/PhoneBookScreen';
 import {scaleFont, scaleHeight, scaleWidth} from '../../utils/Responsive';
 import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
+import {PersonalContact} from 'src/services/ContactsService';
 
 interface PersonalContactsListProps {
-  sections: {title: string; data: Contact[]}[];
+  sections: {title: string; data: PersonalContact[]}[];
 }
 
 const PersonalContactsList: React.FC<PersonalContactsListProps> = ({

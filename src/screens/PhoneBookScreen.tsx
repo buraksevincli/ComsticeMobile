@@ -9,12 +9,7 @@ import {
   fetchContactsThunk,
   fetchCorporateDirectoryThunk,
 } from '../store/slices/ContactsSlice';
-
-export interface Contact {
-  name: string;
-  lastname: string;
-  company?: string;
-}
+import {PersonalContact} from 'src/services/ContactsService';
 
 const PhoneBookScreen: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -38,21 +33,29 @@ const PhoneBookScreen: React.FC = () => {
     }
   }, [activeTab, dispatch, isPersonalContactsFetched]);
 
+  useEffect(() => {
+    if (
+      activeTab === 'Corporate Directory' &&
+      corporateDirectory.length === 0
+    ) {
+      dispatch(fetchCorporateDirectoryThunk(searchParams));
+    }
+  }, [activeTab]);
+
   const handleSearch = () => {
     if (activeTab === 'Corporate Directory') {
       dispatch(fetchCorporateDirectoryThunk(searchParams));
     }
   };
 
-  const groupedContacts = personalContacts.reduce<Record<string, Contact[]>>(
-    (acc, contact) => {
-      const firstLetter = contact.name[0]?.toUpperCase() || '#';
-      if (!acc[firstLetter]) acc[firstLetter] = [];
-      acc[firstLetter].push(contact);
-      return acc;
-    },
-    {},
-  );
+  const groupedContacts = personalContacts.reduce<
+    Record<string, PersonalContact[]>
+  >((acc, contact) => {
+    const firstLetter = contact.name[0]?.toUpperCase() || '#';
+    if (!acc[firstLetter]) acc[firstLetter] = [];
+    acc[firstLetter].push(contact);
+    return acc;
+  }, {});
 
   const sections = Object.keys(groupedContacts)
     .sort()
