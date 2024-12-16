@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import {Colors} from '../../constants/colors';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
-import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
+import {scaleWidth, scaleHeight, scaleFont} from '../../utils/Responsive';
 
 const Footer: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';

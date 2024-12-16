@@ -1,8 +1,8 @@
 import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
-import {Colors} from '../../constants/colors';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
-import {scaleHeight, scaleWidth, scaleFont} from '../../utils/responsive';
+import {scaleHeight, scaleWidth, scaleFont} from '../../utils/Responsive';
 
 interface SearchInputProps {
   placeholder: string;

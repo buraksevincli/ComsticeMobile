@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {useColorScheme} from 'react-native';
-import {Colors} from '../../constants/colors';
-import {scaleWidth, scaleHeight} from '../../utils/responsive';
+import {Colors} from '../../constants/Colors';
+import {scaleWidth, scaleHeight} from '../../utils/Responsive';
 
 interface LogoHeaderProps {
   logoUri?: string;

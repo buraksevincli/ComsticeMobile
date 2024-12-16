@@ -3,14 +3,14 @@ import {View, StyleSheet} from 'react-native';
 import LogoHeader from '../components/headers/LogoHeader';
 import Footer from '../components/footers/Footer';
 import {useColorScheme} from 'react-native';
-import {Colors} from '../constants/colors';
-import {scaleWidth} from '../utils/responsive';
+import {Colors} from '../constants/Colors';
+import {scaleWidth} from '../utils/Responsive';
 import {useNavigation} from '@react-navigation/native';
 
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/AppNavigator';
 import SettingsButton from '../components/buttons/SettingsButton';
-import {useAppSelector} from '../hooks/reduxHooks';
+import {useAppSelector} from '../hooks/ReduxHooks';
 import SSOLogin from '../components/login/SSOLogin';
 import DefaultLogin from '../components/login/DefaultLogin';
 

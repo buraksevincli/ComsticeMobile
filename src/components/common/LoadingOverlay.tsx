@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, ActivityIndicator, StyleSheet} from 'react-native';
-import {Colors} from '../../constants/colors';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
-import {scaleHeight, scaleFont} from '../../utils/responsive';
+import {scaleHeight, scaleFont} from '../../utils/Responsive';
 
 interface LoadingOverlayProps {
   visible: boolean;

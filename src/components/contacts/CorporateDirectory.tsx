@@ -1,30 +1,53 @@
 import React, {useState} from 'react';
-import {View, FlatList, Text, StyleSheet} from 'react-native';
+import {View, FlatList, Text, StyleSheet, Image} from 'react-native';
 import SearchInput from '../inputs/SearchInput';
 import CustomButton from '../buttons/CustomButton';
-import {scaleFont, scaleHeight, scaleWidth} from '../../utils/responsive';
-import {Colors} from '../../constants/colors';
+import {scaleFont, scaleHeight, scaleWidth} from '../../utils/Responsive';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
+import {Contact} from '../../screens/PhoneBookScreen';
+import LoadingOverlay from '../../components/common/LoadingOverlay';
+
+interface CorporateContact extends Contact {
+  company: string;
+}
 
 interface CorporateDirectoryListProps {
-  data: {name: string; lastname: string; company: string}[];
+  data: CorporateContact[];
+  isLoading: boolean;
+  searchParams: {
+    name: string;
+    lastname: string;
+    company: string;
+  };
+  setSearchParams: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      lastname: string;
+      company: string;
+    }>
+  >;
+  handleSearch: () => void;
 }
 
 const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
   data,
+  isLoading,
+  searchParams,
+  setSearchParams,
+  handleSearch,
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
 
-  const [searchParams, setSearchParams] = useState({
-    name: '',
-    lastname: '',
-    company: '',
-  });
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState<CorporateContact[]>([]);
 
-  const handleSearch = () => {
-    const filtered = data.filter(
+  const handleInputChange = (field: string, value: string) => {
+    setSearchParams(prev => ({...prev, [field]: value}));
+  };
+
+  const onSearchClick = () => {
+    const results = data.filter(
       item =>
         (searchParams.name === '' ||
           item.name.toLowerCase().includes(searchParams.name.toLowerCase())) &&
@@ -37,16 +60,20 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
             .toLowerCase()
             .includes(searchParams.company.toLowerCase())),
     );
-    setFilteredData(filtered);
+    setFilteredData(results);
+    handleSearch();
   };
 
-  const handleInputChange = (field: string, value: string) => {
-    setSearchParams(prev => ({...prev, [field]: value}));
-  };
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <LoadingOverlay visible={isLoading} message="Searching Contacts..." />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
-      {/* Search Inputs */}
       <SearchInput
         placeholder="Name"
         value={searchParams.name}
@@ -62,11 +89,8 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
         value={searchParams.company}
         onChangeText={value => handleInputChange('company', value)}
       />
+      <CustomButton title="Search" onPress={onSearchClick} fullWidth />
 
-      {/* Search Button */}
-      <CustomButton title="Search" onPress={handleSearch} fullWidth />
-
-      {/* Results */}
       <FlatList
         style={{marginTop: scaleHeight(20)}}
         data={filteredData}
@@ -83,9 +107,19 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
           </View>
         )}
         ListEmptyComponent={
-          <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
-            No contacts found.
-          </Text>
+          <View style={{alignItems: 'center', marginTop: scaleHeight(50)}}>
+            <Image
+              source={require('../../assets/images/icons/user-icon.png')}
+              style={{
+                width: scaleWidth(100),
+                height: scaleHeight(100),
+                resizeMode: 'contain',
+              }}
+            />
+            <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
+              No contacts found.
+            </Text>
+          </View>
         }
       />
     </View>
@@ -109,7 +143,13 @@ const styles = StyleSheet.create({
   noResultsText: {
     fontSize: scaleFont(14),
     textAlign: 'center',
+    fontWeight: '500',
     marginTop: scaleHeight(20),
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

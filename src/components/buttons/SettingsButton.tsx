@@ -1,8 +1,8 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, View} from 'react-native';
-import {Colors} from '../../constants/colors';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
-import {scaleWidth} from '../../utils/responsive';
+import {scaleWidth} from '../../utils/Responsive';
 
 interface SettingsButtonProps {
   onPress: () => void;

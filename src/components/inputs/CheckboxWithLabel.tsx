@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {Colors} from '../../constants/colors';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
-import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
+import {scaleWidth, scaleHeight, scaleFont} from '../../utils/Responsive';
 
 interface CheckboxWithLabelProps {
   label: string;

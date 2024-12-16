@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
-import {Colors} from '../../constants/colors';
+import {scaleWidth, scaleHeight, scaleFont} from '../../utils/Responsive';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
 
 interface TabBarProps {

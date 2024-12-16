@@ -4,11 +4,11 @@ import SettingsInputField from '../components/inputs/SettingsInputField';
 import CheckboxWithLabel from '../components/inputs/CheckboxWithLabel';
 import CustomButton from '../components/buttons/CustomButton';
 import LoadingOverlay from '../components/common/LoadingOverlay';
-import {scaleFont, scaleHeight, scaleWidth} from '../utils/responsive';
-import {Colors} from '../constants/colors';
-import {setCompanyData} from '../store/slices/companySlice';
-import fetchCompanySettings from '../api/fetchCompanySettings';
-import {useAppDispatch} from '../hooks/reduxHooks';
+import {scaleFont, scaleHeight, scaleWidth} from '../utils/Responsive';
+import {Colors} from '../constants/Colors';
+import {setCompanyData} from '../store/slices/CompanySlice';
+import {useAppDispatch} from '../hooks/ReduxHooks';
+import fetchCompanySettings from '../api/FetchCompanySettings';
 
 const SettingsScreen: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';

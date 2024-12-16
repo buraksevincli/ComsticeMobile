@@ -1,8 +1,8 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
-import {Colors} from '../../constants/colors';
+import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
-import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
+import {scaleWidth, scaleHeight, scaleFont} from '../../utils/Responsive';
 
 interface LoginButtonProps {
   title: string;

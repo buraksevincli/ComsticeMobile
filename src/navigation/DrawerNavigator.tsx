@@ -5,8 +5,8 @@ import CallsScreen from '../screens/CallsScreen';
 import MessagesScreen from '../screens/MessagesScreen';
 import PreferencesScreen from '../screens/PreferencesScreen';
 import TasksScreen from '../screens/TasksScreen';
-import {Colors} from '../constants/colors';
-import {scaleFont, scaleHeight, scaleWidth} from '../utils/responsive';
+import {Colors} from '../constants/Colors';
+import {scaleFont, scaleHeight, scaleWidth} from '../utils/Responsive';
 import {useColorScheme, Image, TouchableOpacity} from 'react-native';
 
 const Drawer = createDrawerNavigator();

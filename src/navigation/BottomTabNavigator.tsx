@@ -4,10 +4,10 @@ import RecentScreen from '../screens/RecentScreen';
 import PhoneBookScreen from '../screens/PhoneBookScreen';
 import FavouritesScreen from '../screens/FavouritesScreen';
 import VoicemailScreen from '../screens/VoicemailScreen';
-import {Colors} from '../constants/colors';
+import {Colors} from '../constants/Colors';
 import {Image, StyleSheet} from 'react-native';
 import {useColorScheme} from 'react-native';
-import {scaleFont, scaleHeight} from '../utils/responsive';
+import {scaleFont, scaleHeight} from '../utils/Responsive';
 
 const Tab = createBottomTabNavigator();
 

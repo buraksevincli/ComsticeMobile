@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import CustomButton from '../buttons/CustomButton';
-import {scaleWidth} from '../../utils/responsive';
+import {scaleWidth} from '../../utils/Responsive';
 
 type SSOLoginProps = {
   onLogin: () => void;

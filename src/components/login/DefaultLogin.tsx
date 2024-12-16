@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import CustomButton from '../buttons/CustomButton';
 import CheckboxWithLabel from '../inputs/CheckboxWithLabel';
-import {scaleWidth} from '../../utils/responsive';
+import {scaleWidth} from '../../utils/Responsive';
 import InputField from '../inputs/InputField';
 
 type DefaultLoginProps = {

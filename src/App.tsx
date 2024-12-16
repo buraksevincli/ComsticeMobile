@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import AppNavigator from './navigation/AppNavigator';
-import {store} from './store/store';
+import {store} from './store/Store';
 // import SetupRNCallKeep from './services/SetupRNCallKeep';
 // import {Platform} from 'react-native';
 

@@ -4,7 +4,7 @@ import LoginScreen from '../screens/LoginScreen';
 import DrawerNavigator from './DrawerNavigator';
 import KeypadScreen from '../screens/KeypadScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import {Colors} from '../constants/colors';
+import {Colors} from '../constants/Colors';
 import {useColorScheme} from 'react-native';
 
 export type RootStackParamList = {

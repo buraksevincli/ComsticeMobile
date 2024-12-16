@@ -1,43 +1,46 @@
-import React, {useState, useEffect} from 'react';
-import {View, Alert, StyleSheet} from 'react-native';
-import Contacts from 'react-native-contacts';
+import React, {useEffect, useState} from 'react';
+import {View, StyleSheet} from 'react-native';
 import TabBar from '../components/tabs/TabBar';
 import PersonalContactsList from '../components/contacts/PersonalContacts';
 import CorporateDirectoryList from '../components/contacts/CorporateDirectory';
+import LoadingOverlay from '../components/common/LoadingOverlay';
+import {useAppDispatch, useAppSelector} from '../hooks/ReduxHooks';
+import {
+  fetchContactsThunk,
+  fetchCorporateDirectoryThunk,
+} from '../store/slices/ContactsSlice';
 
 export interface Contact {
   name: string;
   lastname: string;
+  company?: string;
 }
 
 const PhoneBookScreen: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('Personal Contacts');
-  const [personalContacts, setPersonalContacts] = useState<Contact[]>([]);
+  const dispatch = useAppDispatch();
+  const {personalContacts, corporateDirectory, loading} = useAppSelector(
+    state => state.contacts,
+  );
 
-  const corporateDirectory = [
-    {name: 'Jane', lastname: 'Doe', company: 'TechCorp'},
-    {name: 'John', lastname: 'Smith', company: 'TechCorp'},
-    {name: 'Adele', lastname: 'Vasquez', company: 'Alpha Inc.'},
-    {name: 'Arthur', lastname: 'Hudson', company: 'Beta Ltd.'},
-    {name: 'Alvin', lastname: 'Mccarthy', company: 'Gamma Co.'},
-  ];
+  const [activeTab, setActiveTab] = useState<string>('Personal Contacts');
+  const [isPersonalContactsFetched, setIsPersonalContactsFetched] =
+    useState<boolean>(false);
+  const [searchParams, setSearchParams] = useState({
+    name: '',
+    lastname: '',
+    company: '',
+  });
 
   useEffect(() => {
-    if (activeTab === 'Personal Contacts') {
-      fetchContacts();
+    if (activeTab === 'Personal Contacts' && !isPersonalContactsFetched) {
+      dispatch(fetchContactsThunk());
+      setIsPersonalContactsFetched(true);
     }
-  }, [activeTab]);
+  }, [activeTab, dispatch, isPersonalContactsFetched]);
 
-  const fetchContacts = async () => {
-    try {
-      const contacts = await Contacts.getAll();
-      const formattedContacts: Contact[] = contacts.map(contact => ({
-        name: contact.givenName || '',
-        lastname: contact.familyName || '',
-      }));
-      setPersonalContacts(formattedContacts);
-    } catch (error) {
-      Alert.alert('Error', 'Contacts access is required.');
+  const handleSearch = () => {
+    if (activeTab === 'Corporate Directory') {
+      dispatch(fetchCorporateDirectoryThunk(searchParams));
     }
   };
 
@@ -67,9 +70,22 @@ const PhoneBookScreen: React.FC = () => {
       />
 
       {activeTab === 'Personal Contacts' ? (
-        <PersonalContactsList sections={sections} />
+        loading ? (
+          <LoadingOverlay
+            visible={true}
+            message="Loading Personal Contacts..."
+          />
+        ) : (
+          <PersonalContactsList sections={sections} />
+        )
       ) : (
-        <CorporateDirectoryList data={corporateDirectory} />
+        <CorporateDirectoryList
+          data={corporateDirectory}
+          isLoading={loading}
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+          handleSearch={handleSearch}
+        />
       )}
     </View>
   );

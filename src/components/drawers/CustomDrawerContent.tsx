@@ -9,8 +9,8 @@ import {
   useColorScheme,
 } from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import {Colors} from '../../constants/colors';
-import {scaleWidth, scaleHeight, scaleFont} from '../../utils/responsive';
+import {Colors} from '../../constants/Colors';
+import {scaleWidth, scaleHeight, scaleFont} from '../../utils/Responsive';
 
 interface CustomDrawerContentProps {
   navigation: any;
