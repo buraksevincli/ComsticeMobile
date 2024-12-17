@@ -35,8 +35,12 @@ const VoicemailScreen: React.FC<{navigation: any}> = ({navigation}) => {
     setVoicemails(prev => prev.filter(item => item.id !== id));
   };
 
-  const handlePlay = () => {
-    navigation.navigate('VoicemailDetail');
+  const handlePlay = (voicemail: Voicemail) => {
+    navigation.navigate('VoicemailDetail', {
+      number: voicemail.number,
+      duration: voicemail.duration,
+      date: voicemail.date,
+    });
   };
 
   if (isLoading) {

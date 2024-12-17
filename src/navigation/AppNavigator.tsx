@@ -15,7 +15,11 @@ export type RootStackParamList = {
   Keypad: undefined;
   Settings: undefined;
   Voicemail: undefined;
-  VoicemailDetail: undefined;
+  VoicemailDetail: {
+    number: string;
+    duration: string;
+    date: string;
+  };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -27,6 +31,7 @@ const AppNavigator: React.FC = () => {
     <Stack.Navigator
       initialRouteName="Login"
       screenOptions={{
+        headerBackTitle: 'Back',
         headerStyle: {
           backgroundColor: Colors(isDarkMode).primaryBackground,
         },

@@ -13,7 +13,12 @@ interface VoicemailItemProps {
     date: string;
   };
   onDelete: (id: string) => void;
-  onPlay: () => void;
+  onPlay: (voicemail: {
+    id: string;
+    number: string;
+    duration: string;
+    date: string;
+  }) => void;
 }
 
 const VoicemailItem: React.FC<VoicemailItemProps> = ({
@@ -49,7 +54,7 @@ const VoicemailItem: React.FC<VoicemailItemProps> = ({
           <Text style={[styles.duration, {color: colors.secondaryText}]}>
             {voicemail.duration}
           </Text>
-          <TouchableOpacity onPress={onPlay}>
+          <TouchableOpacity onPress={() => onPlay(voicemail)}>
             <Image
               source={require('../../assets/images/icons/play-icon.png')}
               style={styles.playIcon}
