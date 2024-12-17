@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   View,
   Text,
@@ -28,31 +28,28 @@ const VoicemailDetailScreen: React.FC<VoicemailDetailProps> = ({route}) => {
   const colors = Colors(isDarkMode);
 
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [sliderValue, setSliderValue] = useState<number>(0);
-  const [maxDuration] = useState<number>(convertToSeconds(duration));
+  const sliderValueRef = useRef<number>(0); // Ref for slider value
+  const maxDuration = useRef<number>(convertToSeconds(duration)); // Ref for max duration
+  const [sliderValue, setSliderValue] = useState<number>(0); // For rendering only
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined;
-
     if (isPlaying) {
-      interval = setInterval(() => {
-        setSliderValue(prev => {
-          if (prev >= maxDuration) {
-            setIsPlaying(false);
-            clearInterval(interval);
-            return maxDuration;
-          }
-          return prev + 1;
-        });
+      intervalRef.current = setInterval(() => {
+        sliderValueRef.current += 1;
+        if (sliderValueRef.current >= maxDuration.current) {
+          sliderValueRef.current = maxDuration.current;
+          setIsPlaying(false);
+          clearInterval(intervalRef.current as NodeJS.Timeout);
+        }
+        setSliderValue(sliderValueRef.current); // Update UI only
       }, 1000);
     } else {
-      clearInterval(interval);
+      clearInterval(intervalRef.current as NodeJS.Timeout);
     }
 
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isPlaying, maxDuration]);
+    return () => clearInterval(intervalRef.current as NodeJS.Timeout);
+  }, [isPlaying]);
 
   const togglePlayPause = () => {
     setIsPlaying(prev => !prev);
@@ -75,10 +72,8 @@ const VoicemailDetailScreen: React.FC<VoicemailDetailProps> = ({route}) => {
         <Text style={[styles.number, {color: colors.blackText}]}>{number}</Text>
         <Text style={[styles.date, {color: colors.secondaryText}]}>{date}</Text>
       </View>
-
       {/* Play/Pause and Slider Section */}
       <View style={styles.sliderContainer}>
-        {/* Play/Pause Icon */}
         <TouchableOpacity onPress={togglePlayPause} style={styles.playButton}>
           <Image
             source={
@@ -90,31 +85,32 @@ const VoicemailDetailScreen: React.FC<VoicemailDetailProps> = ({route}) => {
           />
         </TouchableOpacity>
 
-        {/* Slider Section */}
         <View style={styles.sliderWrapper}>
           <Slider
             style={styles.slider}
             minimumValue={0}
-            maximumValue={maxDuration}
+            maximumValue={maxDuration.current}
             value={sliderValue}
+            step={1}
             minimumTrackTintColor={colors.primaryButton}
             maximumTrackTintColor={colors.divider}
             thumbTintColor={colors.primaryButton}
-            onValueChange={value => setSliderValue(Math.floor(value))}
+            // onSlidingStart={() => setIsPlaying(false)}
+            onSlidingComplete={value => {
+              sliderValueRef.current = value;
+              setSliderValue(value);
+            }}
           />
-
-          {/* Timer Section */}
           <View style={styles.timerContainer}>
             <Text style={[styles.timerText, {color: colors.secondaryText}]}>
               {formatTime(sliderValue)}
             </Text>
             <Text style={[styles.timerText, {color: colors.secondaryText}]}>
-              {formatTime(maxDuration)}
+              {formatTime(maxDuration.current)}
             </Text>
           </View>
         </View>
       </View>
-
       {/* Transcription Section */}
       <View style={styles.transcriptionContainer}>
         <Text style={[styles.transcriptionTitle, {color: colors.blackText}]}>
