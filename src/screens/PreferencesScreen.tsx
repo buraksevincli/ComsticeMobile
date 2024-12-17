@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const PreferencesScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Preferences Screen</Text>
+      <Text style={styles.text}>No preferences found.</Text>
     </View>
   );
 };

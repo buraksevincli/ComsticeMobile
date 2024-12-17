@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const RecentScreen: React.FC = () => {
+const CRMScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>No recent call found.</Text>
+      <Text style={styles.text}>No CRM found.</Text>
     </View>
   );
 };
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RecentScreen;
+export default CRMScreen;

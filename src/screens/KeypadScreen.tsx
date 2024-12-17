@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const KeypadScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Keypad Screen</Text>
+      <Text style={styles.text}>Keypad is not available for now.</Text>
     </View>
   );
 };

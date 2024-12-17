@@ -5,6 +5,7 @@ import CallsScreen from '../screens/CallsScreen';
 import MessagesScreen from '../screens/MessagesScreen';
 import PreferencesScreen from '../screens/PreferencesScreen';
 import TasksScreen from '../screens/TasksScreen';
+import CRMScreen from '../screens/CRMScreen';
 import {Colors} from '../constants/Colors';
 import {scaleFont, scaleHeight, scaleWidth} from '../utils/Responsive';
 import {useColorScheme, Image, TouchableOpacity} from 'react-native';
@@ -51,6 +52,7 @@ const DrawerNavigator: React.FC = ({navigation}: any) => {
       <Drawer.Screen name="Calls" component={CallsScreen} />
       <Drawer.Screen name="Tasks" component={TasksScreen} />
       <Drawer.Screen name="Messages" component={MessagesScreen} />
+      <Drawer.Screen name="CRM" component={CRMScreen} />
       <Drawer.Screen name="Preferences" component={PreferencesScreen} />
     </Drawer.Navigator>
   );

@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const MessagesScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Messages Screen</Text>
+      <Text style={styles.text}>No messages found.</Text>
     </View>
   );
 };

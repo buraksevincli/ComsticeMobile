@@ -90,7 +90,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
       />
       <DrawerItem
         label="CRM"
-        onPress={() => {}}
+        onPress={() => props.navigation.navigate('CRM')}
         labelStyle={styles.drawerLabel}
         icon={() => (
           <Image
