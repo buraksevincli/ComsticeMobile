@@ -7,6 +7,7 @@ import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
 import LoadingOverlay from '../../components/common/LoadingOverlay';
 import {CorporateDirectoryContact} from 'src/services/CorporateDirectoryService';
+import i18n from '../../locales/i18n';
 
 interface CorporateDirectoryListProps {
   data: CorporateDirectoryContact[];
@@ -65,7 +66,10 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
-        <LoadingOverlay visible={isLoading} message="Searching Contacts..." />
+        <LoadingOverlay
+          visible={isLoading}
+          message={i18n.t('searchingContacts')}
+        />
       </View>
     );
   }
@@ -73,21 +77,25 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
   return (
     <View style={styles.container}>
       <SearchInput
-        placeholder="Name"
+        placeholder={i18n.t('name')}
         value={searchParams.name}
         onChangeText={value => handleInputChange('name', value)}
       />
       <SearchInput
-        placeholder="Lastname"
+        placeholder={i18n.t('lastname')}
         value={searchParams.lastname}
         onChangeText={value => handleInputChange('lastname', value)}
       />
       <SearchInput
-        placeholder="Company"
+        placeholder={i18n.t('company')}
         value={searchParams.company}
         onChangeText={value => handleInputChange('company', value)}
       />
-      <CustomButton title="Search" onPress={onSearchClick} fullWidth />
+      <CustomButton
+        title={i18n.t('search')}
+        onPress={onSearchClick}
+        fullWidth
+      />
 
       <FlatList
         style={{marginTop: scaleHeight(20)}}
@@ -115,7 +123,7 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
               }}
             />
             <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
-              No contacts found.
+              {i18n.t('noContacts')}
             </Text>
           </View>
         }

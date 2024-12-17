@@ -8,6 +8,7 @@ import {Colors} from '../constants/Colors';
 import {Image, StyleSheet} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {scaleFont, scaleHeight} from '../utils/Responsive';
+import i18n from '../locales/i18n';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,16 +22,16 @@ const BottomTabNavigator: React.FC = () => {
           let icon;
 
           switch (route.name) {
-            case 'Recent':
+            case i18n.t('recent'):
               icon = require('../assets/images/icons/recent-icon.png');
               break;
-            case 'Phone Book':
+            case i18n.t('phoneBook'):
               icon = require('../assets/images/icons/phonebook-icon.png');
               break;
-            case 'Favourites':
+            case i18n.t('favourites'):
               icon = require('../assets/images/icons/favourites-icon.png');
               break;
-            case 'Voicemail':
+            case i18n.t('voicemail'):
               icon = require('../assets/images/icons/voicemail-icon.png');
               break;
           }
@@ -66,10 +67,26 @@ const BottomTabNavigator: React.FC = () => {
           backgroundColor: Colors(isDarkMode).secondaryBackground,
         },
       })}>
-      <Tab.Screen name="Recent" component={RecentScreen} />
-      <Tab.Screen name="Phone Book" component={PhoneBookScreen} />
-      <Tab.Screen name="Favourites" component={FavouritesScreen} />
-      <Tab.Screen name="Voicemail" component={VoicemailScreen} />
+      <Tab.Screen
+        name={i18n.t('recent')}
+        component={RecentScreen}
+        options={{headerTitle: i18n.t('recent')}}
+      />
+      <Tab.Screen
+        name={i18n.t('phoneBook')}
+        component={PhoneBookScreen}
+        options={{headerTitle: i18n.t('phoneBook')}}
+      />
+      <Tab.Screen
+        name={i18n.t('favourites')}
+        component={FavouritesScreen}
+        options={{headerTitle: i18n.t('favourites')}}
+      />
+      <Tab.Screen
+        name={i18n.t('voicemail')}
+        component={VoicemailScreen}
+        options={{headerTitle: i18n.t('voicemail')}}
+      />
     </Tab.Navigator>
   );
 };

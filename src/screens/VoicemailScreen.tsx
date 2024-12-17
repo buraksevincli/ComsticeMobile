@@ -3,6 +3,7 @@ import {View, FlatList, StyleSheet} from 'react-native';
 import VoicemailItem from '../components/voicemail/VoicemailItem';
 import LoadingOverlay from '../components/common/LoadingOverlay';
 import {fetchVoicemails, Voicemail} from '../services/VoicemailService';
+import i18n from '../locales/i18n';
 
 const VoicemailScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const [voicemails, setVoicemails] = useState<Voicemail[]>([]);
@@ -45,7 +46,10 @@ const VoicemailScreen: React.FC<{navigation: any}> = ({navigation}) => {
 
   if (isLoading) {
     return (
-      <LoadingOverlay visible={isLoading} message="Loading Voicemails..." />
+      <LoadingOverlay
+        visible={isLoading}
+        message={i18n.t('loadingVoicemail')}
+      />
     );
   }
 

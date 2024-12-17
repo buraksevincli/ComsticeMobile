@@ -4,6 +4,7 @@ import {scaleFont, scaleHeight, scaleWidth} from '../../utils/Responsive';
 import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
 import {PersonalContact} from 'src/services/ContactsService';
+import i18n from '../../locales/i18n';
 
 interface PersonalContactsListProps {
   sections: {title: string; data: PersonalContact[]}[];
@@ -58,10 +59,10 @@ const PersonalContactsList: React.FC<PersonalContactsListProps> = ({
           />
           <View style={styles.textContainer}>
             <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
-              No contacts found.
+              {i18n.t('noContacts')}
             </Text>
             <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
-              Contacts access is required. Please allow access from settings.
+              {i18n.t('noPermission')}
             </Text>
           </View>
         </View>

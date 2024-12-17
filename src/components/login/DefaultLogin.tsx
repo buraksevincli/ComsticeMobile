@@ -5,6 +5,7 @@ import CustomButton from '../buttons/CustomButton';
 import CheckboxWithLabel from '../inputs/CheckboxWithLabel';
 import {scaleWidth} from '../../utils/Responsive';
 import InputField from '../inputs/InputField';
+import i18n from '../../locales/i18n';
 
 type DefaultLoginProps = {
   onLogin: () => void;
@@ -16,21 +17,21 @@ const DefaultLogin: React.FC<DefaultLoginProps> = ({onLogin}) => {
   return (
     <View>
       <InputField
-        placeholder="User ID"
+        placeholder={i18n.t('userId')}
         icon={require('../../assets/images/icons/user-icon.png')}
       />
       <InputField
-        placeholder="Password"
+        placeholder={i18n.t('password')}
         icon={require('../../assets/images/icons/password-icon.png')}
         secureTextEntry={true}
       />
       <CheckboxWithLabel
-        label="Remember Me"
+        label={i18n.t('rememberMe')}
         value={rememberMe}
         onChange={() => setRememberMe(!rememberMe)}
       />
       <View style={styles.buttonContainer}>
-        <CustomButton title="Login" onPress={onLogin} />
+        <CustomButton title={i18n.t('login')} onPress={onLogin} />
       </View>
     </View>
   );

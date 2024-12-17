@@ -12,6 +12,7 @@ import {Colors} from '../constants/Colors';
 import {useColorScheme} from 'react-native';
 import {RouteProp} from '@react-navigation/native';
 import Slider from '@react-native-community/slider';
+import i18n from '../locales/i18n';
 
 type VoicemailDetailProps = {
   route: RouteProp<
@@ -117,8 +118,11 @@ const VoicemailDetailScreen: React.FC<VoicemailDetailProps> = ({route}) => {
       {/* Transcription Section */}
       <View style={styles.transcriptionContainer}>
         <Text style={[styles.transcriptionTitle, {color: colors.blackText}]}>
-          Transcription{' '}
-          <Text style={{fontStyle: 'italic'}}> (If AI support)</Text>
+          {i18n.t('transcription')}{' '}
+          <Text style={{fontStyle: 'italic', fontWeight: '400'}}>
+            {' '}
+            (If AI support)
+          </Text>
         </Text>
         <Text style={[styles.transcriptionText, {color: colors.secondaryText}]}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et

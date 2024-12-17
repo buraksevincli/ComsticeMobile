@@ -1664,6 +1664,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNLocalize (3.3.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNReanimated (3.16.5):
     - DoubleConversion
     - glog
@@ -1869,6 +1890,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNCallKeep (from `../node_modules/react-native-callkeep`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -2014,6 +2036,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-callkeep"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNLocalize:
+    :path: "../node_modules/react-native-localize"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -2090,6 +2114,7 @@ SPEC CHECKSUMS:
   ReactCommon: a6b87a7591591f7a52d9c0fec3aa05e0620d5dd3
   RNCallKeep: 94bbe46b807ccf58e9f6ec11bc4d6087323a1954
   RNGestureHandler: 0e5ae8d72ef4afb855e98dcdbe60f27d938abe13
+  RNLocalize: c28a383fb73b1480d1117c3ca4402113e1772366
   RNReanimated: eb3170ded1ec1f61d8129c6cc2df06778f99703f
   RNScreens: 44a3e358d5ccd7815c5ae9148988c562826992b2
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748

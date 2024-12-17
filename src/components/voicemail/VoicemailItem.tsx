@@ -4,6 +4,7 @@ import {Swipeable} from 'react-native-gesture-handler';
 import {scaleFont, scaleHeight, scaleWidth} from '../../utils/Responsive';
 import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
+import i18n from '../../locales/i18n';
 
 interface VoicemailItemProps {
   voicemail: {
@@ -33,7 +34,7 @@ const VoicemailItem: React.FC<VoicemailItemProps> = ({
     <View style={[styles.deleteContainer, {backgroundColor: colors.error}]}>
       <TouchableOpacity onPress={() => onDelete(voicemail.id)}>
         <Text style={[styles.deleteText, {color: colors.headerText}]}>
-          Delete
+          {i18n.t('delete')}
         </Text>
       </TouchableOpacity>
     </View>

@@ -8,6 +8,7 @@ import {Colors} from '../constants/Colors';
 import {useColorScheme} from 'react-native';
 import VoicemailScreen from '../screens/VoicemailScreen';
 import VoicemailDetailScreen from '../screens/VoicemailDetailScreen';
+import i18n from '../locales/i18n';
 
 export type RootStackParamList = {
   Login: undefined;
@@ -31,7 +32,7 @@ const AppNavigator: React.FC = () => {
     <Stack.Navigator
       initialRouteName="Login"
       screenOptions={{
-        headerBackTitle: 'Back',
+        headerBackTitle: i18n.t('back'),
         headerStyle: {
           backgroundColor: Colors(isDarkMode).primaryBackground,
         },
@@ -52,25 +53,20 @@ const AppNavigator: React.FC = () => {
         name="Keypad"
         component={KeypadScreen}
         options={{
-          title: 'Keypad',
+          title: i18n.t('keypad'),
         }}
       />
       <Stack.Screen
         name="Settings"
         component={SettingsScreen}
         options={{
-          title: 'Settings',
+          title: i18n.t('settings'),
         }}
-      />
-      <Stack.Screen
-        name="Voicemail"
-        component={VoicemailScreen}
-        options={{title: 'Voicemail'}}
       />
       <Stack.Screen
         name="VoicemailDetail"
         component={VoicemailDetailScreen}
-        options={{title: 'Voicemail Detail'}}
+        options={{title: i18n.t('voicemailDetail')}}
       />
     </Stack.Navigator>
   );

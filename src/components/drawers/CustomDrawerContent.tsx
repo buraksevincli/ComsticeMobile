@@ -11,6 +11,7 @@ import {
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {Colors} from '../../constants/Colors';
 import {scaleWidth, scaleHeight, scaleFont} from '../../utils/Responsive';
+import i18n from '../../locales/i18n';
 
 interface CustomDrawerContentProps {
   navigation: any;
@@ -42,7 +43,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
 
         {/* Availability */}
         <View style={styles.availability}>
-          <Text style={styles.availableText}>Available</Text>
+          <Text style={styles.availableText}>{i18n.t('available')}</Text>
           <Switch
             value={isAvailable}
             onValueChange={setIsAvailable}
@@ -56,7 +57,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
       </View>
       {/* Drawer Items */}
       <DrawerItem
-        label="Calls"
+        label={i18n.t('calls')}
         onPress={() => props.navigation.navigate('Calls')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -67,7 +68,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label="Tasks"
+        label={i18n.t('tasks')}
         onPress={() => props.navigation.navigate('Tasks')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -78,7 +79,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label="Messages"
+        label={i18n.t('messages')}
         onPress={() => props.navigation.navigate('Messages')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -89,7 +90,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label="CRM"
+        label={i18n.t('crm')}
         onPress={() => props.navigation.navigate('CRM')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -100,7 +101,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label="Preferences"
+        label={i18n.t('preferences')}
         onPress={() => props.navigation.navigate('Preferences')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -124,7 +125,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
           source={require('../../assets/images/icons/exit-icon.png')}
           style={styles.icon}
         />
-        <Text style={styles.signOutText}>Sign Out</Text>
+        <Text style={styles.signOutText}>{i18n.t('signOut')}</Text>
       </TouchableOpacity>
 
       {/* Footer */}

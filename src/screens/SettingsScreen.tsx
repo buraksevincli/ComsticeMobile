@@ -9,6 +9,7 @@ import {Colors} from '../constants/Colors';
 import {setCompanyData} from '../store/slices/CompanySlice';
 import {useAppDispatch} from '../hooks/ReduxHooks';
 import fetchCompanySettings from '../api/FetchCompanySettings';
+import i18n from '../locales/i18n';
 
 const SettingsScreen: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -40,9 +41,12 @@ const SettingsScreen: React.FC = () => {
           loginWithSso: data.loginWithSso,
         }),
       );
-      Alert.alert('Success', 'Settings fetched and updated!');
+      Alert.alert(i18n.t('success'), i18n.t('settingsFetched'));
     } catch (error: any) {
-      Alert.alert('Error', error.message || 'Failed to fetch settings.');
+      Alert.alert(
+        i18n.t('error'),
+        error.message || i18n.t('settingsFetchError'),
+      );
     } finally {
       setIsLoading(false);
     }
@@ -51,21 +55,21 @@ const SettingsScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <SettingsInputField
-        placeholder="Enter Your Phone Number"
+        placeholder={i18n.t('enterPhoneNumber')}
         value={phoneNumber}
         onChangeText={setPhoneNumber}
       />
       <View style={styles.rowContainer}>
         <View style={styles.flexItem}>
           <SettingsInputField
-            placeholder="Enter Code"
+            placeholder={i18n.t('enterCode')}
             value={code}
             onChangeText={setCode}
           />
         </View>
         <View style={styles.flexButton}>
           <CustomButton
-            title="GET"
+            title={i18n.t('get')}
             onPress={handleGetSettings}
             color={colors.primaryBackground}
           />
@@ -74,14 +78,14 @@ const SettingsScreen: React.FC = () => {
 
       <View style={styles.checkboxContainer}>
         <CheckboxWithLabel
-          label="Voice Over Internet"
+          label={i18n.t('voiceOverInternet')}
           labelColor={colors.secondaryText}
           borderColor={colors.secondaryText}
           value={voiceOverInternet}
           onChange={handleCheckboxChange}
         />
         <CheckboxWithLabel
-          label="Standard Phone Line"
+          label={i18n.t('standardPhoneLine')}
           labelColor={colors.secondaryText}
           borderColor={colors.secondaryText}
           value={standardPhoneLine}
@@ -91,13 +95,13 @@ const SettingsScreen: React.FC = () => {
 
       <View style={styles.footer}>
         <CustomButton
-          title="UPDATE"
+          title={i18n.t('update')}
           onPress={() => console.log('UPDATE Button Pressed')}
           color={colors.primaryButton}
         />
       </View>
 
-      <LoadingOverlay visible={isLoading} message="Loading..." />
+      <LoadingOverlay visible={isLoading} message={i18n.t('loading')} />
     </View>
   );
 };

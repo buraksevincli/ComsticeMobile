@@ -3,6 +3,7 @@ import {TouchableOpacity, Text, StyleSheet, View} from 'react-native';
 import {Colors} from '../../constants/Colors';
 import {useColorScheme} from 'react-native';
 import {scaleWidth} from '../../utils/Responsive';
+import i18n from '../../locales/i18n';
 
 interface SettingsButtonProps {
   onPress: () => void;
@@ -15,7 +16,9 @@ const SettingsButton: React.FC<SettingsButtonProps> = ({onPress}) => {
   return (
     <View style={styles.button}>
       <TouchableOpacity onPress={onPress}>
-        <Text style={[styles.text, {color: colors.headerText}]}>Settings</Text>
+        <Text style={[styles.text, {color: colors.headerText}]}>
+          {i18n.t('settings')}
+        </Text>
       </TouchableOpacity>
     </View>
   );

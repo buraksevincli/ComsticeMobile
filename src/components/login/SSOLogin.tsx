@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import CustomButton from '../buttons/CustomButton';
 import {scaleWidth} from '../../utils/Responsive';
+import i18n from '../../locales/i18n';
 
 type SSOLoginProps = {
   onLogin: () => void;
@@ -10,7 +11,11 @@ type SSOLoginProps = {
 const SSOLogin: React.FC<SSOLoginProps> = ({onLogin}) => {
   return (
     <View style={styles.container}>
-      <CustomButton title="Login with SSO" onPress={onLogin} fullWidth />
+      <CustomButton
+        title={i18n.t('loginWithSSO')}
+        onPress={onLogin}
+        fullWidth
+      />
     </View>
   );
 };

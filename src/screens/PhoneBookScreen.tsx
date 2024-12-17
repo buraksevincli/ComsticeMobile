@@ -10,6 +10,7 @@ import {
   fetchCorporateDirectoryThunk,
 } from '../store/slices/ContactsSlice';
 import {PersonalContact} from 'src/services/ContactsService';
+import i18n from '../locales/i18n';
 
 const PhoneBookScreen: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +18,9 @@ const PhoneBookScreen: React.FC = () => {
     state => state.contacts,
   );
 
-  const [activeTab, setActiveTab] = useState<string>('Personal Contacts');
+  const [activeTab, setActiveTab] = useState<string>(
+    i18n.t('personalContacts'),
+  );
   const [isPersonalContactsFetched, setIsPersonalContactsFetched] =
     useState<boolean>(false);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
@@ -28,7 +31,10 @@ const PhoneBookScreen: React.FC = () => {
   });
 
   useEffect(() => {
-    if (activeTab === 'Personal Contacts' && !isPersonalContactsFetched) {
+    if (
+      activeTab === i18n.t('personalContacts') &&
+      !isPersonalContactsFetched
+    ) {
       dispatch(fetchContactsThunk());
       setIsPersonalContactsFetched(true);
     }
@@ -36,7 +42,7 @@ const PhoneBookScreen: React.FC = () => {
 
   useEffect(() => {
     if (
-      activeTab === 'Corporate Directory' &&
+      activeTab === i18n.t('corporateDirectory') &&
       corporateDirectory.length === 0
     ) {
       dispatch(fetchCorporateDirectoryThunk(searchParams));
@@ -50,7 +56,7 @@ const PhoneBookScreen: React.FC = () => {
   };
 
   const handleSearch = () => {
-    if (activeTab === 'Corporate Directory') {
+    if (activeTab === i18n.t('corporateDirectory')) {
       dispatch(fetchCorporateDirectoryThunk(searchParams));
     }
   };
@@ -74,16 +80,16 @@ const PhoneBookScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <TabBar
-        tabs={['Personal Contacts', 'Corporate Directory']}
+        tabs={[i18n.t('personalContacts'), i18n.t('corporateDirectory')]}
         activeTab={activeTab}
         onTabPress={setActiveTab}
       />
 
-      {activeTab === 'Personal Contacts' ? (
+      {activeTab === i18n.t('personalContacts') ? (
         loading && !isRefreshing ? (
           <LoadingOverlay
             visible={true}
-            message="Loading Personal Contacts..."
+            message={i18n.t('loadingPersonalContacts')}
           />
         ) : (
           <PersonalContactsList
