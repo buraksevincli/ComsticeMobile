@@ -20,6 +20,7 @@ const PhoneBookScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('Personal Contacts');
   const [isPersonalContactsFetched, setIsPersonalContactsFetched] =
     useState<boolean>(false);
+  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
   const [searchParams, setSearchParams] = useState({
     name: '',
     lastname: '',
@@ -41,6 +42,12 @@ const PhoneBookScreen: React.FC = () => {
       dispatch(fetchCorporateDirectoryThunk(searchParams));
     }
   }, [activeTab]);
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    await dispatch(fetchContactsThunk());
+    setIsRefreshing(false);
+  };
 
   const handleSearch = () => {
     if (activeTab === 'Corporate Directory') {
@@ -73,13 +80,17 @@ const PhoneBookScreen: React.FC = () => {
       />
 
       {activeTab === 'Personal Contacts' ? (
-        loading ? (
+        loading && !isRefreshing ? (
           <LoadingOverlay
             visible={true}
             message="Loading Personal Contacts..."
           />
         ) : (
-          <PersonalContactsList sections={sections} />
+          <PersonalContactsList
+            sections={sections}
+            refreshing={isRefreshing}
+            onRefresh={handleRefresh}
+          />
         )
       ) : (
         <CorporateDirectoryList

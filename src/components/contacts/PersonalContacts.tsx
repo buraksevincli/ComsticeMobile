@@ -7,10 +7,14 @@ import {PersonalContact} from 'src/services/ContactsService';
 
 interface PersonalContactsListProps {
   sections: {title: string; data: PersonalContact[]}[];
+  refreshing: boolean;
+  onRefresh: () => void;
 }
 
 const PersonalContactsList: React.FC<PersonalContactsListProps> = ({
   sections,
+  refreshing,
+  onRefresh,
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
@@ -62,6 +66,8 @@ const PersonalContactsList: React.FC<PersonalContactsListProps> = ({
           </View>
         </View>
       }
+      refreshing={refreshing}
+      onRefresh={onRefresh}
     />
   );
 };

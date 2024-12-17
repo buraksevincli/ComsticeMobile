@@ -6,12 +6,16 @@ import KeypadScreen from '../screens/KeypadScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import {Colors} from '../constants/Colors';
 import {useColorScheme} from 'react-native';
+import VoicemailScreen from '../screens/VoicemailScreen';
+import VoicemailDetailScreen from '../screens/VoicemailDetailScreen';
 
 export type RootStackParamList = {
   Login: undefined;
   Home: undefined;
   Keypad: undefined;
   Settings: undefined;
+  Voicemail: undefined;
+  VoicemailDetail: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -52,6 +56,16 @@ const AppNavigator: React.FC = () => {
         options={{
           title: 'Settings',
         }}
+      />
+      <Stack.Screen
+        name="Voicemail"
+        component={VoicemailScreen}
+        options={{title: 'Voicemail'}}
+      />
+      <Stack.Screen
+        name="VoicemailDetail"
+        component={VoicemailDetailScreen}
+        options={{title: 'Voicemail Detail'}}
       />
     </Stack.Navigator>
   );
