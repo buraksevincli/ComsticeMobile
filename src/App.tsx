@@ -3,6 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import AppNavigator from './navigation/AppNavigator';
 import {store} from './store/Store';
+import BootSplash from 'react-native-bootsplash';
+
 // import SetupRNCallKeep from './services/SetupRNCallKeep';
 // import {Platform} from 'react-native';
 
@@ -21,6 +23,16 @@ const App: React.FC = () => {
   //   };
   //   setupCallKeep();
   // }, []);
+
+  useEffect(() => {
+    const init = async () => {
+      // …do multiple sync or async tasks
+    };
+
+    init().finally(async () => {
+      await BootSplash.hide({fade: true});
+    });
+  }, []);
 
   return (
     <Provider store={store}>

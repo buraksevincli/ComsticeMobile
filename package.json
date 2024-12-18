@@ -20,6 +20,7 @@
     "i18n-js": "^4.5.1",
     "react": "18.3.1",
     "react-native": "0.76.5",
+    "react-native-bootsplash": "^6.3.2",
     "react-native-callkeep": "^4.3.16",
     "react-native-contacts": "^8.0.4",
     "react-native-gesture-handler": "^2.21.2",

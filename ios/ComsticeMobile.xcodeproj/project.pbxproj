@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ComsticeMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ComsticeMobileTests.m */; };
 		0AA835A78D2E1CAAA184E5DF /* libPods-ComsticeMobile-ComsticeMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF752983CF44F57D1D4E1B88 /* libPods-ComsticeMobile-ComsticeMobileTests.a */; };
+		0DD6DEDDCC88476A8D041A4D /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024C67A6347A4D538CF20EA1 /* BootSplash.storyboard */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		701AA18FC38D95E9F37866BC /* libPods-ComsticeMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22B9F31290650445B00B587 /* libPods-ComsticeMobile.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9114D579EEE24ADAAE45B23D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 835A535BAFFA48F4908A6B60 /* Colors.xcassets */; };
 		B8CB305EC21125767D9DBC1B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,7 @@
 		00E356EE1AD99517003FC87E /* ComsticeMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComsticeMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ComsticeMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComsticeMobileTests.m; sourceTree = "<group>"; };
+		024C67A6347A4D538CF20EA1 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = ComsticeMobile/BootSplash.storyboard; sourceTree = "<group>"; };
 		07530E77B77E8B4E9FAE1916 /* Pods-ComsticeMobile-ComsticeMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComsticeMobile-ComsticeMobileTests.release.xcconfig"; path = "Target Support Files/Pods-ComsticeMobile-ComsticeMobileTests/Pods-ComsticeMobile-ComsticeMobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ComsticeMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComsticeMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ComsticeMobile/AppDelegate.h; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ComsticeMobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		743CEA764C7ED5AF57387C77 /* Pods-ComsticeMobile-ComsticeMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComsticeMobile-ComsticeMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-ComsticeMobile-ComsticeMobileTests/Pods-ComsticeMobile-ComsticeMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ComsticeMobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		835A535BAFFA48F4908A6B60 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = ComsticeMobile/Colors.xcassets; sourceTree = "<group>"; };
 		A77E98596DE084E10669CBEF /* Pods-ComsticeMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComsticeMobile.release.xcconfig"; path = "Target Support Files/Pods-ComsticeMobile/Pods-ComsticeMobile.release.xcconfig"; sourceTree = "<group>"; };
 		E22B9F31290650445B00B587 /* libPods-ComsticeMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComsticeMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -95,6 +99,8 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				024C67A6347A4D538CF20EA1 /* BootSplash.storyboard */,
+				835A535BAFFA48F4908A6B60 /* Colors.xcassets */,
 			);
 			name = ComsticeMobile;
 			sourceTree = "<group>";
@@ -247,6 +253,8 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B8CB305EC21125767D9DBC1B /* PrivacyInfo.xcprivacy in Resources */,
+				0DD6DEDDCC88476A8D041A4D /* BootSplash.storyboard in Resources */,
+				9114D579EEE24ADAAE45B23D /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +598,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -659,7 +670,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
