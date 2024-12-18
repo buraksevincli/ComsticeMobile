@@ -3,7 +3,7 @@
 
 // const options = {
 //   ios: {
-//     appName: 'ComsticeMobile',
+//     appName: 'Comstice Communicator',
 //     includesCallsInRecents: false,
 //     imageName: 'callkit_icon',
 //   },
@@ -20,9 +20,9 @@
 //       PermissionsAndroid.PERMISSIONS.WRITE_CALL_LOG,
 //     ],
 //     foregroundService: {
-//       channelId: 'com.comsticeMobile',
-//       channelName: 'Foreground service for ComsticeMobile',
-//       notificationTitle: 'ComsticeMobile is running in the background',
+//       channelId: 'com.comstice.communicator',
+//       channelName: 'Foreground service for Comstice Communicator',
+//       notificationTitle: 'Comstice Communicator is running in the background',
 //       notificationIcon: 'ic_launcher_foreground', // Use a valid drawable resource name
 //     },
 //   },

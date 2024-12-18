@@ -1,5 +1,4 @@
-package com.comsticemobile
-
+package com.comstice.communicator
 import android.app.Application
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication

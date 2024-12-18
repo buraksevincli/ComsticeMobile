@@ -1,4 +1,4 @@
-package com.comsticemobile;
+package com.comstice.communicator;
 
 import android.util.Log;
 

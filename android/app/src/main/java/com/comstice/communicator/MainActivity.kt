@@ -1,4 +1,4 @@
-package com.comsticemobile
+package com.comstice.communicator
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -9,7 +9,7 @@ import android.os.Bundle;
 class MainActivity : ReactActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(null)
+    super.onCreate(savedInstanceState)
   }
 
   /**
