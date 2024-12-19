@@ -6,6 +6,7 @@ import KeypadScreen from '../screens/KeypadScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import VoicemailDetailScreen from '../screens/VoicemailDetailScreen';
 import TaskDetailScreen from '../screens/TaskDetailScreen';
+import LocationScreen from '../screens/LocationScreen';
 import {Colors} from '../constants/Colors';
 import {useColorScheme} from 'react-native';
 import i18n from '../locales/i18n';
@@ -30,6 +31,7 @@ export type RootStackParamList = {
     company: string;
     details: string;
   };
+  Location: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -81,6 +83,11 @@ const AppNavigator: React.FC = () => {
         name="TaskDetail"
         component={TaskDetailScreen}
         options={{title: i18n.t('navigation.taskDetail')}}
+      />
+      <Stack.Screen
+        name="Location"
+        component={LocationScreen}
+        options={{title: i18n.t('navigation.location')}}
       />
     </Stack.Navigator>
   );

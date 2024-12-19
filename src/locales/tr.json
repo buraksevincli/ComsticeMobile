@@ -35,7 +35,8 @@
     "preferences": "Tercihler",
     "signOut": "Çıkış Yap",
     "back": "Geri",
-    "taskDetail": "Görev Detayı"
+    "taskDetail": "Görev Detayı",
+    "location": "Konum"
   },
   "contacts": {
     "personalContacts": "Kişilerim",
@@ -68,5 +69,10 @@
     "call": "Ara",
     "email": "E-posta",
     "schedule": "Randevu"
+  },
+  "preferences": {
+    "automaticAvailable": "Otomatik Müsait",
+    "selectCallingNumber": "Arama Numarası Seçin",
+    "pinYourLocation": "Konumunuzu Sabitleyin"
   }
 }

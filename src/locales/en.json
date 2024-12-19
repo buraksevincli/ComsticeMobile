@@ -35,7 +35,8 @@
     "preferences": "Preferences",
     "signOut": "Sign Out",
     "back": "Back",
-    "taskDetail": "Task Detail"
+    "taskDetail": "Task Detail",
+    "location": "Location"
   },
   "contacts": {
     "personalContacts": "Personal Contacts",
@@ -68,5 +69,10 @@
     "call": "Call",
     "email": "E-mail",
     "schedule": "Schedule"
+  },
+  "preferences": {
+    "automaticAvailable": "Automatic Available",
+    "selectCallingNumber": "Select Calling Number",
+    "pinYourLocation": "Pin Your Location"
   }
 }
