@@ -16,13 +16,18 @@ const PreferencesScreen: React.FC<{navigation: any}> = ({navigation}) => {
     useState<boolean>(false);
   const [selectedNumber, setSelectedNumber] = useState<string>('+17139293714');
 
-  const numbers: any = [
+  const numbers = [
     '+17139293714',
     '+17135235235',
     '+17235323529',
     '+17433298102',
     '+17492211045',
   ];
+
+  const formattedNumbers = numbers.map(num => ({
+    label: num,
+    value: num,
+  }));
 
   const handlePinLocation = () => {
     navigation.navigate('Location');
@@ -39,7 +44,7 @@ const PreferencesScreen: React.FC<{navigation: any}> = ({navigation}) => {
         label={i18n.t('preferences.selectCallingNumber')}
         selectedValue={selectedNumber}
         onValueChange={setSelectedNumber}
-        options={numbers}
+        options={formattedNumbers}
       />
       <View style={styles.buttonContainer}>
         <CustomButton
