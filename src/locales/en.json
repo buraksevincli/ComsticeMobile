@@ -27,13 +27,15 @@
     "recent": "Recent",
     "phoneBook": "Phone Book",
     "favourites": "Favourites",
+    "available": "Available",
     "calls": "Calls",
     "tasks": "Tasks",
     "crm": "CRM",
     "messages": "Messages",
     "preferences": "Preferences",
     "signOut": "Sign Out",
-    "back": "Back"
+    "back": "Back",
+    "taskDetail": "Task Detail"
   },
   "contacts": {
     "personalContacts": "Personal Contacts",
@@ -52,7 +54,19 @@
     "transcription": "Transcription",
     "loadingVoicemail": "Loading Voicemail..."
   },
-  "common": {
-    "available": "Available"
+  "tasks": {
+    "dueDate": "Due Date",
+    "loadingTasks": "Loading Tasks...",
+    "noTasks": "No tasks available",
+    "fetchError": "Failed to fetch tasks.",
+    "details": "Details",
+    "company": "Company",
+    "contact": "Contact Name",
+    "action": "Action",
+    "completed": "Completed",
+    "comments": "Comments",
+    "call": "Call",
+    "email": "E-mail",
+    "schedule": "Schedule"
   }
 }

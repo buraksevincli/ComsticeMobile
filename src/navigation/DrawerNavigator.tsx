@@ -9,6 +9,7 @@ import CRMScreen from '../screens/CRMScreen';
 import {Colors} from '../constants/Colors';
 import {scaleFont, scaleHeight, scaleWidth} from '../utils/Responsive';
 import {useColorScheme, Image, TouchableOpacity} from 'react-native';
+import i18n from '../../src/locales/i18n';
 
 const Drawer = createDrawerNavigator();
 
@@ -34,26 +35,48 @@ const DrawerNavigator: React.FC = ({navigation}: any) => {
         drawerLabelStyle: {
           color: Colors(isDarkMode).error,
         },
-        headerRight: () => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Keypad')}
-            style={{marginRight: 16}}>
-            <Image
-              source={require('../assets/images/icons/grid-icon.png')}
-              style={{
-                width: scaleWidth(24),
-                height: scaleHeight(24),
-                tintColor: Colors(isDarkMode).headerText,
-              }}
-            />
-          </TouchableOpacity>
-        ),
       }}>
-      <Drawer.Screen name="Calls" component={CallsScreen} />
-      <Drawer.Screen name="Tasks" component={TasksScreen} />
-      <Drawer.Screen name="Messages" component={MessagesScreen} />
-      <Drawer.Screen name="CRM" component={CRMScreen} />
-      <Drawer.Screen name="Preferences" component={PreferencesScreen} />
+      <Drawer.Screen
+        name="Calls"
+        component={CallsScreen}
+        options={{
+          headerTitle: i18n.t('navigation.calls'),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Keypad')}
+              style={{marginRight: 16}}>
+              <Image
+                source={require('../assets/images/icons/grid-icon.png')}
+                style={{
+                  width: scaleWidth(24),
+                  height: scaleHeight(24),
+                  tintColor: Colors(isDarkMode).headerText,
+                }}
+              />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Tasks"
+        component={TasksScreen}
+        options={{headerTitle: i18n.t('navigation.tasks')}}
+      />
+      <Drawer.Screen
+        name="Messages"
+        component={MessagesScreen}
+        options={{headerTitle: i18n.t('navigation.messages')}}
+      />
+      <Drawer.Screen
+        name="CRM"
+        component={CRMScreen}
+        options={{headerTitle: i18n.t('navigation.crm')}}
+      />
+      <Drawer.Screen
+        name="Preferences"
+        component={PreferencesScreen}
+        options={{headerTitle: i18n.t('navigation.preferences')}}
+      />
     </Drawer.Navigator>
   );
 };

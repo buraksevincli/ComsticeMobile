@@ -4,9 +4,10 @@ import LoginScreen from '../screens/LoginScreen';
 import DrawerNavigator from './DrawerNavigator';
 import KeypadScreen from '../screens/KeypadScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import VoicemailDetailScreen from '../screens/VoicemailDetailScreen';
+import TaskDetailScreen from '../screens/TaskDetailScreen';
 import {Colors} from '../constants/Colors';
 import {useColorScheme} from 'react-native';
-import VoicemailDetailScreen from '../screens/VoicemailDetailScreen';
 import i18n from '../locales/i18n';
 
 export type RootStackParamList = {
@@ -19,6 +20,15 @@ export type RootStackParamList = {
     number: string;
     duration: string;
     date: string;
+  };
+  TaskDetail: {
+    title: string;
+    due_date: string;
+    action: string;
+    contactid: string;
+    cust_name: string;
+    company: string;
+    details: string;
   };
 };
 
@@ -66,6 +76,11 @@ const AppNavigator: React.FC = () => {
         name="VoicemailDetail"
         component={VoicemailDetailScreen}
         options={{title: i18n.t('navigation.voicemailDetail')}}
+      />
+      <Stack.Screen
+        name="TaskDetail"
+        component={TaskDetailScreen}
+        options={{title: i18n.t('navigation.taskDetail')}}
       />
     </Stack.Navigator>
   );

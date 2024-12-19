@@ -34,7 +34,8 @@
     "messages": "Mesajlar",
     "preferences": "Tercihler",
     "signOut": "Çıkış Yap",
-    "back": "Geri"
+    "back": "Geri",
+    "taskDetail": "Görev Detayı"
   },
   "contacts": {
     "personalContacts": "Kişilerim",
@@ -52,5 +53,20 @@
   "voicemail": {
     "transcription": "Transkripsiyon",
     "loadingVoicemail": "Sesli Mesaj Yükleniyor..."
+  },
+  "tasks": {
+    "dueDate": "Son Tarih",
+    "loadingTasks": "Görevler Yükleniyor...",
+    "noTasks": "Mevcut görev yok",
+    "fetchError": "Görevler alınamadı.",
+    "details": "Detaylar",
+    "company": "Şirket",
+    "contact": "Kişi Adı",
+    "action": "Aksiyon",
+    "completed": "Tamamlandı",
+    "comments": "Yorumlar",
+    "call": "Ara",
+    "email": "E-posta",
+    "schedule": "Randevu"
   }
 }
