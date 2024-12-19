@@ -17,7 +17,7 @@ const SettingsButton: React.FC<SettingsButtonProps> = ({onPress}) => {
     <View style={styles.button}>
       <TouchableOpacity onPress={onPress}>
         <Text style={[styles.text, {color: colors.headerText}]}>
-          {i18n.t('settings')}
+          {i18n.t('settings.settings')}
         </Text>
       </TouchableOpacity>
     </View>

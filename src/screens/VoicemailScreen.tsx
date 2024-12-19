@@ -48,7 +48,7 @@ const VoicemailScreen: React.FC<{navigation: any}> = ({navigation}) => {
     return (
       <LoadingOverlay
         visible={isLoading}
-        message={i18n.t('loadingVoicemail')}
+        message={i18n.t('voicemail.loadingVoicemail')}
       />
     );
   }

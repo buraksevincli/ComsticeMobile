@@ -34,7 +34,7 @@ const VoicemailItem: React.FC<VoicemailItemProps> = ({
     <View style={[styles.deleteContainer, {backgroundColor: colors.error}]}>
       <TouchableOpacity onPress={() => onDelete(voicemail.id)}>
         <Text style={[styles.deleteText, {color: colors.headerText}]}>
-          {i18n.t('delete')}
+          {i18n.t('contacts.delete')}
         </Text>
       </TouchableOpacity>
     </View>

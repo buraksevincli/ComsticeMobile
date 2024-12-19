@@ -114,7 +114,7 @@ const VoicemailDetailScreen: React.FC<VoicemailDetailProps> = ({route}) => {
       {/* Transcription Section */}
       <View style={styles.transcriptionContainer}>
         <Text style={[styles.transcriptionTitle, {color: colors.blackText}]}>
-          {i18n.t('transcription')}{' '}
+          {i18n.t('voicemail.transcription')}{' '}
           <Text style={{fontStyle: 'italic', fontWeight: '400'}}>
             {' '}
             (If AI support)

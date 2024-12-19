@@ -68,7 +68,7 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
       <View style={styles.loadingContainer}>
         <LoadingOverlay
           visible={isLoading}
-          message={i18n.t('searchingContacts')}
+          message={i18n.t('contacts.searchingContacts')}
         />
       </View>
     );
@@ -77,22 +77,22 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
   return (
     <View style={styles.container}>
       <SearchInput
-        placeholder={i18n.t('name')}
+        placeholder={i18n.t('contacts.name')}
         value={searchParams.name}
         onChangeText={value => handleInputChange('name', value)}
       />
       <SearchInput
-        placeholder={i18n.t('lastname')}
+        placeholder={i18n.t('contacts.lastname')}
         value={searchParams.lastname}
         onChangeText={value => handleInputChange('lastname', value)}
       />
       <SearchInput
-        placeholder={i18n.t('company')}
+        placeholder={i18n.t('contacts.company')}
         value={searchParams.company}
         onChangeText={value => handleInputChange('company', value)}
       />
       <CustomButton
-        title={i18n.t('search')}
+        title={i18n.t('contacts.search')}
         onPress={onSearchClick}
         fullWidth
       />
@@ -123,7 +123,7 @@ const CorporateDirectoryList: React.FC<CorporateDirectoryListProps> = ({
               }}
             />
             <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
-              {i18n.t('noContacts')}
+              {i18n.t('contacts.noContacts')}
             </Text>
           </View>
         }

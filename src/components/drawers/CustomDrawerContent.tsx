@@ -43,7 +43,9 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
 
         {/* Availability */}
         <View style={styles.availability}>
-          <Text style={styles.availableText}>{i18n.t('available')}</Text>
+          <Text style={styles.availableText}>
+            {i18n.t('navigation.available')}
+          </Text>
           <Switch
             value={isAvailable}
             onValueChange={setIsAvailable}
@@ -57,7 +59,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
       </View>
       {/* Drawer Items */}
       <DrawerItem
-        label={i18n.t('calls')}
+        label={i18n.t('navigation.calls')}
         onPress={() => props.navigation.navigate('Calls')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -68,7 +70,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label={i18n.t('tasks')}
+        label={i18n.t('navigation.tasks')}
         onPress={() => props.navigation.navigate('Tasks')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -79,7 +81,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label={i18n.t('messages')}
+        label={i18n.t('navigation.messages')}
         onPress={() => props.navigation.navigate('Messages')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -90,7 +92,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label={i18n.t('crm')}
+        label={i18n.t('navigation.crm')}
         onPress={() => props.navigation.navigate('CRM')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -101,7 +103,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         )}
       />
       <DrawerItem
-        label={i18n.t('preferences')}
+        label={i18n.t('navigation.preferences')}
         onPress={() => props.navigation.navigate('Preferences')}
         labelStyle={styles.drawerLabel}
         icon={() => (
@@ -125,7 +127,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
           source={require('../../assets/images/icons/exit-icon.png')}
           style={styles.icon}
         />
-        <Text style={styles.signOutText}>{i18n.t('signOut')}</Text>
+        <Text style={styles.signOutText}>{i18n.t('navigation.signOut')}</Text>
       </TouchableOpacity>
 
       {/* Footer */}

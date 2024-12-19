@@ -17,21 +17,21 @@ const DefaultLogin: React.FC<DefaultLoginProps> = ({onLogin}) => {
   return (
     <View>
       <InputField
-        placeholder={i18n.t('userId')}
+        placeholder={i18n.t('auth.userId')}
         icon={require('../../assets/images/icons/user-icon.png')}
       />
       <InputField
-        placeholder={i18n.t('password')}
+        placeholder={i18n.t('auth.password')}
         icon={require('../../assets/images/icons/password-icon.png')}
         secureTextEntry={true}
       />
       <CheckboxWithLabel
-        label={i18n.t('rememberMe')}
+        label={i18n.t('auth.rememberMe')}
         value={rememberMe}
         onChange={() => setRememberMe(!rememberMe)}
       />
       <View style={styles.buttonContainer}>
-        <CustomButton title={i18n.t('login')} onPress={onLogin} />
+        <CustomButton title={i18n.t('auth.login')} onPress={onLogin} />
       </View>
     </View>
   );

@@ -41,11 +41,14 @@ const SettingsScreen: React.FC = () => {
           loginWithSso: data.loginWithSso,
         }),
       );
-      Alert.alert(i18n.t('success'), i18n.t('settingsFetched'));
+      Alert.alert(
+        i18n.t('settings.success'),
+        i18n.t('settings.settingsFetched'),
+      );
     } catch (error: any) {
       Alert.alert(
         i18n.t('error'),
-        error.message || i18n.t('settingsFetchError'),
+        error.message || i18n.t('settings.settingsFetchError'),
       );
     } finally {
       setIsLoading(false);
@@ -55,21 +58,21 @@ const SettingsScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <SettingsInputField
-        placeholder={i18n.t('enterPhoneNumber')}
+        placeholder={i18n.t('settings.enterPhoneNumber')}
         value={phoneNumber}
         onChangeText={setPhoneNumber}
       />
       <View style={styles.rowContainer}>
         <View style={styles.flexItem}>
           <SettingsInputField
-            placeholder={i18n.t('enterCode')}
+            placeholder={i18n.t('settings.enterCode')}
             value={code}
             onChangeText={setCode}
           />
         </View>
         <View style={styles.flexButton}>
           <CustomButton
-            title={i18n.t('get')}
+            title={i18n.t('settings.get')}
             onPress={handleGetSettings}
             color={colors.primaryBackground}
           />
@@ -78,14 +81,14 @@ const SettingsScreen: React.FC = () => {
 
       <View style={styles.checkboxContainer}>
         <CheckboxWithLabel
-          label={i18n.t('voiceOverInternet')}
+          label={i18n.t('settings.voiceOverInternet')}
           labelColor={colors.secondaryText}
           borderColor={colors.secondaryText}
           value={voiceOverInternet}
           onChange={handleCheckboxChange}
         />
         <CheckboxWithLabel
-          label={i18n.t('standardPhoneLine')}
+          label={i18n.t('settings.standardPhoneLine')}
           labelColor={colors.secondaryText}
           borderColor={colors.secondaryText}
           value={standardPhoneLine}
@@ -95,13 +98,16 @@ const SettingsScreen: React.FC = () => {
 
       <View style={styles.footer}>
         <CustomButton
-          title={i18n.t('update')}
+          title={i18n.t('settings.update')}
           onPress={() => console.log('UPDATE Button Pressed')}
           color={colors.primaryButton}
         />
       </View>
 
-      <LoadingOverlay visible={isLoading} message={i18n.t('loading')} />
+      <LoadingOverlay
+        visible={isLoading}
+        message={i18n.t('settings.loading')}
+      />
     </View>
   );
 };

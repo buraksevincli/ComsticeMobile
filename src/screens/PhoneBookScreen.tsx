@@ -19,7 +19,7 @@ const PhoneBookScreen: React.FC = () => {
   );
 
   const [activeTab, setActiveTab] = useState<string>(
-    i18n.t('personalContacts'),
+    i18n.t('contacts.personalContacts'),
   );
   const [isPersonalContactsFetched, setIsPersonalContactsFetched] =
     useState<boolean>(false);
@@ -32,7 +32,7 @@ const PhoneBookScreen: React.FC = () => {
 
   useEffect(() => {
     if (
-      activeTab === i18n.t('personalContacts') &&
+      activeTab === i18n.t('contacts.personalContacts') &&
       !isPersonalContactsFetched
     ) {
       dispatch(fetchContactsThunk());
@@ -42,7 +42,7 @@ const PhoneBookScreen: React.FC = () => {
 
   useEffect(() => {
     if (
-      activeTab === i18n.t('corporateDirectory') &&
+      activeTab === i18n.t('contacts.corporateDirectory') &&
       corporateDirectory.length === 0
     ) {
       dispatch(fetchCorporateDirectoryThunk(searchParams));
@@ -56,7 +56,7 @@ const PhoneBookScreen: React.FC = () => {
   };
 
   const handleSearch = () => {
-    if (activeTab === i18n.t('corporateDirectory')) {
+    if (activeTab === i18n.t('contacts.corporateDirectory')) {
       dispatch(fetchCorporateDirectoryThunk(searchParams));
     }
   };
@@ -80,16 +80,19 @@ const PhoneBookScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <TabBar
-        tabs={[i18n.t('personalContacts'), i18n.t('corporateDirectory')]}
+        tabs={[
+          i18n.t('contacts.personalContacts'),
+          i18n.t('contacts.corporateDirectory'),
+        ]}
         activeTab={activeTab}
         onTabPress={setActiveTab}
       />
 
-      {activeTab === i18n.t('personalContacts') ? (
+      {activeTab === i18n.t('contacts.personalContacts') ? (
         loading && !isRefreshing ? (
           <LoadingOverlay
             visible={true}
-            message={i18n.t('loadingPersonalContacts')}
+            message={i18n.t('contacts.loadingPersonalContacts')}
           />
         ) : (
           <PersonalContactsList

@@ -12,7 +12,7 @@ const SSOLogin: React.FC<SSOLoginProps> = ({onLogin}) => {
   return (
     <View style={styles.container}>
       <CustomButton
-        title={i18n.t('loginWithSSO')}
+        title={i18n.t('auth.loginWithSSO')}
         onPress={onLogin}
         fullWidth
       />

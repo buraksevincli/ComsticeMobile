@@ -59,10 +59,10 @@ const PersonalContactsList: React.FC<PersonalContactsListProps> = ({
           />
           <View style={styles.textContainer}>
             <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
-              {i18n.t('noContacts')}
+              {i18n.t('contacts.noContacts')}
             </Text>
             <Text style={[styles.noResultsText, {color: colors.secondaryText}]}>
-              {i18n.t('noPermission')}
+              {i18n.t('contacts.noPermission')}
             </Text>
           </View>
         </View>

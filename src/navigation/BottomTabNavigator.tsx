@@ -22,16 +22,16 @@ const BottomTabNavigator: React.FC = () => {
           let icon;
 
           switch (route.name) {
-            case i18n.t('recent'):
+            case i18n.t('navigation.recent'):
               icon = require('../assets/images/icons/recent-icon.png');
               break;
-            case i18n.t('phoneBook'):
+            case i18n.t('navigation.phoneBook'):
               icon = require('../assets/images/icons/phonebook-icon.png');
               break;
-            case i18n.t('favourites'):
+            case i18n.t('navigation.favourites'):
               icon = require('../assets/images/icons/favourites-icon.png');
               break;
-            case i18n.t('voicemail'):
+            case i18n.t('navigation.voicemail'):
               icon = require('../assets/images/icons/voicemail-icon.png');
               break;
           }
@@ -68,24 +68,24 @@ const BottomTabNavigator: React.FC = () => {
         },
       })}>
       <Tab.Screen
-        name={i18n.t('recent')}
+        name={i18n.t('navigation.recent')}
         component={RecentScreen}
-        options={{headerTitle: i18n.t('recent')}}
+        options={{headerTitle: i18n.t('navigation.recent')}}
       />
       <Tab.Screen
-        name={i18n.t('phoneBook')}
+        name={i18n.t('navigation.phoneBook')}
         component={PhoneBookScreen}
-        options={{headerTitle: i18n.t('phoneBook')}}
+        options={{headerTitle: i18n.t('navigation.phoneBook')}}
       />
       <Tab.Screen
-        name={i18n.t('favourites')}
+        name={i18n.t('navigation.favourites')}
         component={FavouritesScreen}
-        options={{headerTitle: i18n.t('favourites')}}
+        options={{headerTitle: i18n.t('navigation.favourites')}}
       />
       <Tab.Screen
-        name={i18n.t('voicemail')}
+        name={i18n.t('navigation.voicemail')}
         component={VoicemailScreen}
-        options={{headerTitle: i18n.t('voicemail')}}
+        options={{headerTitle: i18n.t('navigation.voicemail')}}
       />
     </Tab.Navigator>
   );
