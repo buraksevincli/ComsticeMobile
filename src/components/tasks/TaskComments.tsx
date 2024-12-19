@@ -18,6 +18,8 @@ const TaskComments: React.FC<TaskCommentsProps> = ({comments, setComments}) => {
         onChangeText={setComments}
         multiline
         maxLength={2000}
+        returnKeyType="done"
+        blurOnSubmit={true}
       />
       <Text style={styles.charCount}>{comments.length}/2000</Text>
     </View>

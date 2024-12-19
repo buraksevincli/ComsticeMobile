@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   Image,
-  TouchableOpacity,
   Switch,
   useColorScheme,
 } from 'react-native';
@@ -20,6 +19,7 @@ interface CustomDrawerContentProps {
 const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
   const [isAvailable, setIsAvailable] = React.useState(true);
   const isDarkMode = useColorScheme() === 'dark';
+  const colors = Colors(isDarkMode);
 
   const styles = useMemo(() => createStyles(isDarkMode), [isDarkMode]);
 
@@ -28,7 +28,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
       {...props}
       contentContainerStyle={[
         styles.container,
-        {backgroundColor: Colors(isDarkMode).primaryBackground},
+        {backgroundColor: colors.primaryBackground},
       ]}>
       {/* Header Section */}
       <View style={styles.headerSection}>
@@ -50,10 +50,10 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
             value={isAvailable}
             onValueChange={setIsAvailable}
             trackColor={{
-              true: Colors(isDarkMode).primaryButton,
-              false: Colors(isDarkMode).placeholderText,
+              true: colors.primaryButton,
+              false: colors.placeholderText,
             }}
-            thumbColor={Colors(isDarkMode).headerText}
+            thumbColor={colors.headerText}
           />
         </View>
       </View>
@@ -113,22 +113,26 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
           />
         )}
       />
-
-      {/* Sign Out */}
-      <TouchableOpacity
-        style={styles.signOut}
+      <DrawerItem
+        label={i18n.t('navigation.signOut')}
+        style={{marginTop: scaleHeight(20)}}
         onPress={() => {
           props.navigation.reset({
             index: 0,
             routes: [{name: 'Login'}],
           });
-        }}>
-        <Image
-          source={require('../../assets/images/icons/exit-icon.png')}
-          style={styles.icon}
-        />
-        <Text style={styles.signOutText}>{i18n.t('navigation.signOut')}</Text>
-      </TouchableOpacity>
+        }}
+        labelStyle={[
+          styles.drawerLabel,
+          {color: colors.error, fontWeight: 'bold', fontSize: scaleFont(26)},
+        ]}
+        icon={() => (
+          <Image
+            source={require('../../assets/images/icons/exit-icon.png')}
+            style={styles.icon}
+          />
+        )}
+      />
 
       {/* Footer */}
       <View style={styles.footer}>

@@ -36,7 +36,7 @@ const CustomButton: React.FC<LoginButtonProps> = ({
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    borderRadius: scaleWidth(12),
+    borderRadius: 10,
     paddingVertical: scaleHeight(10),
     paddingHorizontal: scaleWidth(20),
   },
