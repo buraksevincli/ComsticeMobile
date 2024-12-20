@@ -73,6 +73,9 @@
   "preferences": {
     "automaticAvailable": "Otomatik Müsait",
     "selectCallingNumber": "Arama Numarası Seçin",
-    "pinYourLocation": "Konumunuzu Sabitleyin"
+    "pinYourLocation": "Konumunuzu Sabitleyin",
+    "noLocationPinned": "Konum sabitlenmedi.",
+    "yourLocation": "Konumunuz",
+    "unknown": "Bilinmeyen"
   }
 }

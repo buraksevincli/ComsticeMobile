@@ -73,6 +73,9 @@
   "preferences": {
     "automaticAvailable": "Automatic Available",
     "selectCallingNumber": "Select Calling Number",
-    "pinYourLocation": "Pin Your Location"
+    "pinYourLocation": "Pin Your Location",
+    "noLocationPinned": "No location pinned.",
+    "yourLocation": "Your Location",
+    "unknown": "Unknown"
   }
 }

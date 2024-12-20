@@ -5,7 +5,7 @@ import AppNavigator from './navigation/AppNavigator';
 import {store} from './store/Store';
 import BootSplash from 'react-native-bootsplash';
 
-// import SetupRNCallKeep from './services/SetupRNCallKeep';
+// import RNCallKeepService from './services/RNCallKeepService';
 // import {Platform} from 'react-native';
 
 const App: React.FC = () => {
@@ -14,7 +14,7 @@ const App: React.FC = () => {
   //     try {
   //       // if (Platform.OS === 'ios' || Platform.OS === 'android')
   //       if (Platform.OS === 'ios') {
-  //         await SetupRNCallKeep();
+  //         await RNCallKeepService();
   //         console.log('RNCallKeep successfully initialized');
   //       }
   //     } catch (error) {

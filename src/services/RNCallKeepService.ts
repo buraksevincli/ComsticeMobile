@@ -28,7 +28,7 @@
 //   },
 // };
 
-// const SetupRNCallKeep = async (): Promise<void> => {
+// const RNCallKeepService = async (): Promise<void> => {
 //   try {
 //     // Log the start of setup
 //     console.log('Starting RNCallKeep setup...');
@@ -65,4 +65,4 @@
 //   }
 // };
 
-// export default SetupRNCallKeep;
+// export default RNCallKeepService;

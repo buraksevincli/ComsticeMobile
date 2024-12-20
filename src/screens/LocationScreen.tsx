@@ -1,10 +1,28 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet, Alert, Platform} from 'react-native';
+
+import {getLocation} from '../services/LocationService';
+import {saveLocation} from '../services/storage/LocationStorage';
 
 const LocationScreen: React.FC = () => {
+  useEffect(() => {
+    handleFetchLocation();
+  }, []);
+
+  const handleFetchLocation = async () => {
+    const location = await getLocation();
+
+    if (location) {
+      saveLocation(location);
+      console.log('Location:', location);
+    } else {
+      console.log('No location available or permission denied');
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>No location found.</Text>
+      <Text style={styles.text}>Map will be displayed here.</Text>
     </View>
   );
 };
