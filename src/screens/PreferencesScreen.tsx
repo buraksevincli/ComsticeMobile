@@ -7,7 +7,7 @@ import {useColorScheme} from 'react-native';
 import {Colors} from '../constants/Colors';
 import i18n from '../locales/i18n';
 import {scaleFont, scaleHeight, scaleWidth} from '../utils/Responsive';
-import {getLocation} from '../services/storage/LocationStorage';
+import {getStoredLocation} from '../services/storage/LocationStorage';
 
 const PreferencesScreen: React.FC<{navigation: any}> = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -17,8 +17,8 @@ const PreferencesScreen: React.FC<{navigation: any}> = ({navigation}) => {
     useState<boolean>(false);
   const [selectedNumber, setSelectedNumber] = useState<string>('+17139293714');
   const [location, setLocation] = useState<{
-    lat: number;
-    lng: number;
+    latitude: number;
+    longitude: number;
     address: string | null;
   } | null>(null);
 
@@ -37,7 +37,7 @@ const PreferencesScreen: React.FC<{navigation: any}> = ({navigation}) => {
 
   const fetchLocation = async () => {
     try {
-      const storedLocation = await getLocation();
+      const storedLocation = await getStoredLocation();
       setLocation(storedLocation);
     } catch (error) {
       console.error('Error fetching location:', error);

@@ -76,6 +76,15 @@
     "pinYourLocation": "Pin Your Location",
     "noLocationPinned": "No location pinned.",
     "yourLocation": "Your Location",
-    "unknown": "Unknown"
+    "unknown": "Unknown",
+    "error": "Error",
+    "errorLocation": "No location available or permission denied.",
+    "errorFetch": "Failed to fetch location.",
+    "success": "Success",
+    "locationPinned": "Location pinned successfully!",
+    "errorSave": "Failed to save location.",
+    "loadingLocation": "Loading Location...",
+    "saveLocation": "Save Location",
+    "noAdress": "No address found."
   }
 }

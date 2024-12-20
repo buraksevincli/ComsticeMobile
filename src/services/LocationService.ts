@@ -54,7 +54,7 @@ export const getLocation = async (): Promise<{
  * @param longitude
  * @returns {Promise<string | null>}
  */
-const fetchAddress = async (
+export const fetchAddress = async (
   latitude: number,
   longitude: number,
 ): Promise<string | null> => {

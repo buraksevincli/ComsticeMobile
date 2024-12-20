@@ -76,6 +76,15 @@
     "pinYourLocation": "Konumunuzu Sabitleyin",
     "noLocationPinned": "Konum sabitlenmedi.",
     "yourLocation": "Konumunuz",
-    "unknown": "Bilinmeyen"
+    "unknown": "Bilinmeyen",
+    "error": "Hata",
+    "errorLocation": "Konum mevcut değil veya izin reddedildi.",
+    "errorFetch": "Konum alınamadı.",
+    "success": "Başarılı",
+    "locationPinned": "Konum sabitlendi!",
+    "errorSave": "Konum kaydedilemedi.",
+    "loadingLocation": "Konum yükleniyor...",
+    "saveLocation": "Konumu Kaydet",
+    "noAdress": "Adres bulunamadı."
   }
 }

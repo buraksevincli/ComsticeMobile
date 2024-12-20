@@ -10,9 +10,9 @@ export const saveLocation = async (location: {
   await saveData(LOCATION_KEY, location);
 };
 
-export const getLocation = async (): Promise<{
-  lat: number;
-  lng: number;
+export const getStoredLocation = async (): Promise<{
+  latitude: number;
+  longitude: number;
   address: string | null;
 }> => {
   const data = await getData(LOCATION_KEY);
