@@ -4,35 +4,27 @@ import {Provider} from 'react-redux';
 import AppNavigator from './navigation/AppNavigator';
 import {store} from './store/Store';
 import BootSplash from 'react-native-bootsplash';
-
-// import RNCallKeepService from './services/RNCallKeepService';
-// import {Platform} from 'react-native';
+import RNCallKeep from 'react-native-callkeep';
+import {RNCallKeepService} from './services/RNCallKeepService';
+import {Platform} from 'react-native';
+import {generateUUID} from './utils/UUID';
 
 const App: React.FC = () => {
-  // useEffect(() => {
-  //   const setupCallKeep = async () => {
-  //     try {
-  //       // if (Platform.OS === 'ios' || Platform.OS === 'android')
-  //       if (Platform.OS === 'ios') {
-  //         await RNCallKeepService();
-  //         console.log('RNCallKeep successfully initialized');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error initializing RNCallKeep:', error);
-  //     }
-  //   };
-  //   setupCallKeep();
-  // }, []);
-
   useEffect(() => {
     const init = async () => {
-      // …do multiple sync or async tasks
+      if (Platform.OS === 'android') RNCallKeepService();
+      TestCall();
     };
 
     init().finally(async () => {
       await BootSplash.hide({fade: true});
     });
   }, []);
+
+  function TestCall() {
+    const uuid = generateUUID();
+    RNCallKeep.displayIncomingCall(uuid, 'Burak Test', 'RNCallKeep TestCall');
+  }
 
   return (
     <Provider store={store}>

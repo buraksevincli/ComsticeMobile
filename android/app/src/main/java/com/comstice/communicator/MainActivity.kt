@@ -6,12 +6,25 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnable
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 import android.os.Bundle;
 import com.zoontek.rnbootsplash.RNBootSplash
+import io.wazo.callkeep.RNCallKeepModule;
 
 class MainActivity : ReactActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     RNBootSplash.init(this, R.style.BootTheme) // ⬅️ initialize the splash screen
     super.onCreate(null) // super.onCreate(null) with react-native-screens
+  }
+  
+  // Permission results
+  override fun onRequestPermissionsResult(
+    requestCode: Int,
+    permissions: Array<out String>,
+    grantResults: IntArray
+  ) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    when (requestCode) {
+      RNCallKeepModule.REQUEST_READ_PHONE_STATE -> RNCallKeepModule.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
   }
 
   /**
