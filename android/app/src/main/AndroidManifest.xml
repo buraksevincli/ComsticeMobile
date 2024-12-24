@@ -26,6 +26,10 @@
     android:allowBackup="false"
     android:theme="@style/AppTheme"
     android:supportsRtl="true">
+    <!-- Google Maps API Key -->
+    <meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="AIzaSyByPWFa5moHI23VOtwfR7-xRD5abB71iXg"/>
     <service android:name="io.wazo.callkeep.RNCallKeepBackgroundMessagingService" />
     <activity
       android:name=".MainActivity"
