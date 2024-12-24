@@ -39,7 +39,7 @@ export const getLocation = async (): Promise<{
           Alert.alert('Error', 'Unable to fetch location. Please try again.');
           reject(null);
         },
-        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+        {enableHighAccuracy: true, timeout: 25000, maximumAge: 0},
       );
     });
   } catch (error) {
