@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "744062227735",
+    "project_id": "comstice-communicator",
+    "storage_bucket": "comstice-communicator.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744062227735:android:4ae760c92658579fe91352",
+        "android_client_info": {
+          "package_name": "com.comstice.communicator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD00DkYfTfiCgZDo5gLeXt-gz_RBS4vJ-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

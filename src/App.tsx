@@ -6,7 +6,7 @@ import {store} from './store/Store';
 import BootSplash from 'react-native-bootsplash';
 import RNCallKeep from 'react-native-callkeep';
 import {RNCallKeepService} from './services/RNCallKeepService';
-import {Platform} from 'react-native';
+import {AppState, Platform} from 'react-native';
 import {generateUUID} from './utils/UUID';
 
 const App: React.FC = () => {
