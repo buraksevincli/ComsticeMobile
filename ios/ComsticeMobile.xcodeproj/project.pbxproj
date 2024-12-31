@@ -45,6 +45,7 @@
 		20ED7018D0991BB58B6ED0F2 /* libPods-ComsticeMobile-ComsticeMobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComsticeMobile-ComsticeMobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42116C007AF51D8AA445830E /* Pods-ComsticeMobile-ComsticeMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComsticeMobile-ComsticeMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-ComsticeMobile-ComsticeMobileTests/Pods-ComsticeMobile-ComsticeMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E62827F2D22A5EA0068296D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4EDC80462D24172C006685CF /* ComsticeMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ComsticeMobile.entitlements; path = ComsticeMobile/ComsticeMobile.entitlements; sourceTree = "<group>"; };
 		6B619E13D4D3428372D6B5A6 /* Pods-ComsticeMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComsticeMobile.debug.xcconfig"; path = "Target Support Files/Pods-ComsticeMobile/Pods-ComsticeMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ComsticeMobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		835A535BAFFA48F4908A6B60 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = ComsticeMobile/Colors.xcassets; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		13B07FAE1A68108700A75B9A /* ComsticeMobile */ = {
 			isa = PBXGroup;
 			children = (
+				4EDC80462D24172C006685CF /* ComsticeMobile.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -498,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ComsticeMobile/ComsticeMobile.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 573PB787E3;
 				ENABLE_BITCODE = NO;
@@ -528,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ComsticeMobile/ComsticeMobile.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 573PB787E3;
 				INFOPLIST_FILE = ComsticeMobile/Info.plist;

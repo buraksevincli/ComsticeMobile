@@ -4,16 +4,23 @@ import {Provider} from 'react-redux';
 import AppNavigator from './navigation/AppNavigator';
 import {store} from './store/Store';
 import BootSplash from 'react-native-bootsplash';
-import RNCallKeep from 'react-native-callkeep';
+import {FirebaseMessagingService} from './services/FirebaseMessagingService';
 import {RNCallKeepService} from './services/RNCallKeepService';
-import {AppState, Platform} from 'react-native';
 import {generateUUID} from './utils/UUID';
+import RNCallKeep from 'react-native-callkeep';
 
 const App: React.FC = () => {
   useEffect(() => {
     const init = async () => {
-      if (Platform.OS === 'android') RNCallKeepService();
-      TestCall();
+      // RNCallKeep initialization
+      RNCallKeepService();
+
+      // Request permissions & setup FCM
+      await FirebaseMessagingService.requestUserPermission();
+      await FirebaseMessagingService.getFcmToken();
+
+      // Setup notification listeners
+      FirebaseMessagingService.setupNotificationListeners();
     };
 
     init().finally(async () => {

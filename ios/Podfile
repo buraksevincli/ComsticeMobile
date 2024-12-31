@@ -27,6 +27,7 @@ target 'ComsticeMobile' do
 
   pod 'GoogleUtilities', :modular_headers => true
   pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
 
   target 'ComsticeMobileTests' do
     inherit! :complete
