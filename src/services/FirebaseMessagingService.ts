@@ -11,7 +11,10 @@ export const FirebaseMessagingService = {
         console.log('Android notification permission:', granted);
         return granted === PermissionsAndroid.RESULTS.GRANTED;
       } else {
-        const authStatus = await messaging().requestPermission();
+        const authStatus = await messaging().requestPermission({
+          provisional: true,
+          providesAppNotificationSettings: true,
+        });
         const enabled =
           authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
           authStatus === messaging.AuthorizationStatus.PROVISIONAL;

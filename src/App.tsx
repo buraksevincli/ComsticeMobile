@@ -21,6 +21,7 @@ const App: React.FC = () => {
 
       // Setup notification listeners
       FirebaseMessagingService.setupNotificationListeners();
+      // TestCall();
     };
 
     init().finally(async () => {
@@ -28,10 +29,10 @@ const App: React.FC = () => {
     });
   }, []);
 
-  function TestCall() {
-    const uuid = generateUUID();
-    RNCallKeep.displayIncomingCall(uuid, 'Burak Test', 'RNCallKeep TestCall');
-  }
+  // function TestCall() {
+  //   const uuid = generateUUID();
+  //   RNCallKeep.displayIncomingCall(uuid, 'Burak Test', 'RNCallKeep TestCall');
+  // }
 
   return (
     <Provider store={store}>
