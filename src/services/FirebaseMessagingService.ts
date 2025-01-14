@@ -43,6 +43,23 @@ export const FirebaseMessagingService = {
     }
   },
 
+  async getAPNSToken() {
+    if (Platform.OS !== 'ios') return null;
+    try {
+      const apnsToken = await messaging().getAPNSToken();
+      if (apnsToken) {
+        console.log('APNS token:', apnsToken);
+        return apnsToken;
+      } else {
+        console.warn('No APNS token received');
+        return null;
+      }
+    } catch (error) {
+      console.error('Error getting APNS token:', error);
+      return null;
+    }
+  },
+
   async setupNotificationListeners() {
     // Foreground notification listener
     const foregroundListener = messaging().onMessage(async remoteMessage => {

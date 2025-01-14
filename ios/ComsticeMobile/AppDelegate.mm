@@ -45,19 +45,4 @@
   [RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView];
 }
 
-// Get Device Token
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    const unsigned char *dataBuffer = (const unsigned char *)[deviceToken bytes];
-    if (!dataBuffer) {
-        NSLog(@"Device Token is empty");
-        return;
-    }
-    NSUInteger dataLength = [deviceToken length];
-    NSMutableString *hexToken = [NSMutableString stringWithCapacity:(dataLength * 2)];
-    for (int i = 0; i < dataLength; ++i) {
-        [hexToken appendFormat:@"%02x", dataBuffer[i]];
-    }
-    NSLog(@"Device Token: %@", hexToken);
-}
-
 @end

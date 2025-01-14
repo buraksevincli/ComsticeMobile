@@ -8,6 +8,7 @@ import {FirebaseMessagingService} from './services/FirebaseMessagingService';
 import {RNCallKeepService} from './services/RNCallKeepService';
 import {generateUUID} from './utils/UUID';
 import RNCallKeep from 'react-native-callkeep';
+// import sendFinesseRequest from './services/FinesseApiServices';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -18,10 +19,12 @@ const App: React.FC = () => {
       // Request permissions & setup FCM
       await FirebaseMessagingService.requestUserPermission();
       await FirebaseMessagingService.getFcmToken();
+      await FirebaseMessagingService.getAPNSToken();
 
       // Setup notification listeners
       FirebaseMessagingService.setupNotificationListeners();
       // TestCall();
+      // sendFinesseRequest();
     };
 
     init().finally(async () => {
