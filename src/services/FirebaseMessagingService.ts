@@ -44,7 +44,7 @@ export const FirebaseMessagingService = {
   },
 
   async getAPNSToken() {
-    if (Platform.OS !== 'ios') return null;
+    if (Platform.OS !== 'ios') return;
     try {
       const apnsToken = await messaging().getAPNSToken();
       if (apnsToken) {
@@ -62,6 +62,7 @@ export const FirebaseMessagingService = {
 
   async setupNotificationListeners() {
     // Foreground notification listener
+    if (Platform.OS === 'ios') return;
     const foregroundListener = messaging().onMessage(async remoteMessage => {
       console.log('Foreground notification:', remoteMessage);
       const title = remoteMessage.notification?.title || 'Notification';
