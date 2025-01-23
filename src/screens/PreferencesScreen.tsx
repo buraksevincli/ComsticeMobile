@@ -72,12 +72,14 @@ const PreferencesScreen: React.FC<{navigation: any}> = ({navigation}) => {
 
       {/* Your Location */}
       <View style={styles.locationContainer}>
-        <Text style={styles.locationLabel}>
+        <Text style={[styles.locationLabel, {color: colors.blackText}]}>
           {i18n.t('preferences.yourLocation')}
         </Text>
         {location?.address ? (
           <View>
-            <Text style={styles.addressText}>{location.address}</Text>
+            <Text style={[styles.addressText, {color: colors.blackText}]}>
+              {location.address}
+            </Text>
           </View>
         ) : (
           <Text style={[styles.noLocationText, {color: colors.error}]}>

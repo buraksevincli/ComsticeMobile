@@ -6,22 +6,51 @@ import {
   Image,
   Switch,
   useColorScheme,
+  Alert,
 } from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {Colors} from '../../constants/Colors';
 import {scaleWidth, scaleHeight, scaleFont} from '../../utils/Responsive';
 import i18n from '../../locales/i18n';
+import {useAppSelector} from '../../hooks/ReduxHooks';
+import {ucceLoginService} from '../../services/UCCELoginService';
 
 interface CustomDrawerContentProps {
   navigation: any;
 }
 
 const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
+  const {username, password} = useAppSelector(state => state.agent);
+  const {token, model} = useAppSelector(state => state.company);
   const [isAvailable, setIsAvailable] = React.useState(true);
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
 
   const styles = useMemo(() => createStyles(isDarkMode), [isDarkMode]);
+
+  const handleSignOut = async () => {
+    if (model === 'ucce') {
+      try {
+        const response = await ucceLoginService.keepAliveLogoutWithToken(
+          username,
+          password,
+          token,
+        );
+        Alert.alert('Keepalive Logout Success', response.msg);
+        props.navigation.reset({
+          index: 0,
+          routes: [{name: 'Login'}],
+        });
+      } catch (error: any) {
+        Alert.alert('Logout Failed', error.message || 'An error occurred');
+      }
+    } else {
+      props.navigation.reset({
+        index: 0,
+        routes: [{name: 'Login'}],
+      });
+    }
+  };
 
   return (
     <DrawerContentScrollView
@@ -117,10 +146,7 @@ const CustomDrawerContent: React.FC<CustomDrawerContentProps> = props => {
         label={i18n.t('navigation.signOut')}
         style={{marginTop: scaleHeight(20)}}
         onPress={() => {
-          props.navigation.reset({
-            index: 0,
-            routes: [{name: 'Login'}],
-          });
+          handleSignOut();
         }}
         labelStyle={[
           styles.drawerLabel,

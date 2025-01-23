@@ -2,6 +2,7 @@
   "auth": {
     "userId": "User ID",
     "password": "Password",
+    "extension": "Extension",
     "rememberMe": "Remember Me",
     "login": "Login",
     "loginWithSSO": "Login with SSO"

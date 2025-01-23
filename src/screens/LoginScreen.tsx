@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import LogoHeader from '../components/headers/LogoHeader';
 import Footer from '../components/footers/Footer';
@@ -12,6 +12,7 @@ import {RootStackParamList} from '../navigation/AppNavigator';
 import SettingsButton from '../components/buttons/SettingsButton';
 import {useAppSelector} from '../hooks/ReduxHooks';
 import SSOLogin from '../components/login/SSOLogin';
+import UCCELogin from '../components/login/UCCELogin';
 import DefaultLogin from '../components/login/DefaultLogin';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<
@@ -24,7 +25,7 @@ const LoginScreen: React.FC = () => {
   const colors = Colors(isDarkMode);
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
-  const {logourl, loginWithSso} = useAppSelector(state => state.company);
+  const {logourl, loginWithSso, model} = useAppSelector(state => state.company);
 
   const handleLogin = () => {
     navigation.reset({
@@ -37,15 +38,21 @@ const LoginScreen: React.FC = () => {
     navigation.navigate('Settings');
   };
 
+  const loginType = () => {
+    if (loginWithSso === 'true') {
+      return <SSOLogin onLogin={handleLogin} />;
+    } else if (model === 'ucce') {
+      return <UCCELogin onLogin={handleLogin} />;
+    } else {
+      return <DefaultLogin onLogin={handleLogin} />;
+    }
+  };
+
   return (
     <View
       style={[styles.container, {backgroundColor: colors.primaryBackground}]}>
       <LogoHeader logoUri={logourl || undefined} />
-      {loginWithSso === 'true' ? (
-        <SSOLogin onLogin={handleLogin} />
-      ) : (
-        <DefaultLogin onLogin={handleLogin} />
-      )}
+      {loginType()}
       <SettingsButton onPress={handleSettings} />
       <Footer />
     </View>

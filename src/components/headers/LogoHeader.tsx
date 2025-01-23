@@ -30,11 +30,11 @@ const LogoHeader: React.FC<LogoHeaderProps> = ({logoUri}) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginBottom: scaleHeight(100),
+    marginBottom: scaleHeight(80),
   },
   logo: {
     width: scaleWidth(400),
-    height: scaleHeight(100),
+    height: scaleHeight(90),
     resizeMode: 'contain',
   },
 });

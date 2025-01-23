@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text, useColorScheme, Alert} from 'react-native';
+import {View, StyleSheet, useColorScheme, Alert} from 'react-native';
 import SettingsInputField from '../components/inputs/SettingsInputField';
 import CheckboxWithLabel from '../components/inputs/CheckboxWithLabel';
 import CustomButton from '../components/buttons/CustomButton';
 import LoadingOverlay from '../components/common/LoadingOverlay';
-import {scaleFont, scaleHeight, scaleWidth} from '../utils/Responsive';
+import {scaleHeight, scaleWidth} from '../utils/Responsive';
 import {Colors} from '../constants/Colors';
 import {setCompanyData} from '../store/slices/CompanySlice';
 import {useAppDispatch} from '../hooks/ReduxHooks';
@@ -39,6 +39,8 @@ const SettingsScreen: React.FC = () => {
           version: data.version,
           logourl: data.logourl,
           loginWithSso: data.loginWithSso,
+          token: data.token,
+          finesse1: data.finesse1,
         }),
       );
       Alert.alert(

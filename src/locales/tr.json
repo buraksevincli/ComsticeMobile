@@ -2,6 +2,7 @@
   "auth": {
     "userId": "Kullanıcı Adı",
     "password": "Şifre",
+    "extension": "Dahili",
     "rememberMe": "Beni Hatırla",
     "login": "Giriş Yap",
     "loginWithSSO": "SSO ile Giriş Yap"

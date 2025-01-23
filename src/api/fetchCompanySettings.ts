@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 const fetchCompanySettings = async (companyCode: string) => {
+  const code = companyCode.trim().toLowerCase();
   try {
     const response = await axios.get(
-      `https://lic.comstice.com/agentsettings/${companyCode}`,
+      `https://lic.comstice.com/agentsettings/${code}`,
     );
     if (Array.isArray(response.data) && response.data.length > 0) {
       return response.data[0];

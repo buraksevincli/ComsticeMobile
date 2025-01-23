@@ -23,14 +23,18 @@ const DropdownRow: React.FC<DropdownRowProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={[styles.label, {color: colors.blackText}]}>{label}</Text>
       <Dropdown
         style={[
           styles.dropdown,
           isFocus && {borderColor: colors.primaryBackground},
         ]}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
+        placeholderStyle={[styles.placeholderStyle, {color: colors.blackText}]}
+        selectedTextStyle={[
+          styles.selectedTextStyle,
+          {color: colors.blackText},
+        ]}
+        itemTextStyle={{color: colors.blackText}}
         data={options}
         maxHeight={300}
         labelField="label"
@@ -74,7 +78,6 @@ const styles = StyleSheet.create({
   },
   placeholderStyle: {
     fontSize: scaleFont(16),
-    color: 'gray',
   },
   selectedTextStyle: {
     fontSize: scaleFont(16),

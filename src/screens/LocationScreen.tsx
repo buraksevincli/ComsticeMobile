@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Alert, Text} from 'react-native';
+import {View, StyleSheet, Alert, Text, useColorScheme} from 'react-native';
 import MapView, {MapMarker} from 'react-native-maps';
 import CustomButton from '../components/buttons/CustomButton';
 import {fetchAddress, getLocation} from '../services/LocationService';
@@ -10,8 +10,11 @@ import {
 import {scaleFont, scaleHeight, scaleWidth} from '../utils/Responsive';
 import LoadingOverlay from '../components/common/LoadingOverlay';
 import i18n from '../locales/i18n';
+import {Colors} from '../constants/Colors';
 
 const LocationScreen: React.FC<{navigation: any}> = ({navigation}) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const colors = Colors(isDarkMode);
   const [initialRegion, setInitialRegion] = useState({
     latitude: 0,
     longitude: 0,
@@ -127,7 +130,7 @@ const LocationScreen: React.FC<{navigation: any}> = ({navigation}) => {
         <MapMarker coordinate={marker} />
       </MapView>
       <View style={styles.addressContainer}>
-        <Text style={styles.addressText}>
+        <Text style={[styles.addressText, {color: colors.blackText}]}>
           {address || i18n.t('preferences.noAddress')}
         </Text>
       </View>

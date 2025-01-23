@@ -1,4 +1,3 @@
-// DefaultLogin.tsx
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import CustomButton from '../buttons/CustomButton';
@@ -12,16 +11,23 @@ type DefaultLoginProps = {
 };
 
 const DefaultLogin: React.FC<DefaultLoginProps> = ({onLogin}) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [extension, setExtension] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
   return (
     <View>
       <InputField
         placeholder={i18n.t('auth.userId')}
+        value={username}
+        onChangeText={setUsername}
         icon={require('../../assets/images/icons/user-icon.png')}
       />
       <InputField
         placeholder={i18n.t('auth.password')}
+        value={password}
+        onChangeText={setPassword}
         icon={require('../../assets/images/icons/password-icon.png')}
         secureTextEntry={true}
       />

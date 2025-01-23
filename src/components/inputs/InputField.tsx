@@ -8,12 +8,16 @@ interface InputFieldProps {
   placeholder: string;
   icon: any;
   secureTextEntry?: boolean;
+  value: string;
+  onChangeText: (text: string) => void;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   icon,
   secureTextEntry = false,
+  value,
+  onChangeText,
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
   const colors = Colors(isDarkMode);
@@ -26,6 +30,8 @@ const InputField: React.FC<InputFieldProps> = ({
         placeholder={placeholder}
         placeholderTextColor={colors.headerText}
         secureTextEntry={secureTextEntry}
+        value={value}
+        onChangeText={onChangeText}
       />
     </View>
   );

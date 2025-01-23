@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet, Switch} from 'react-native';
+import {View, Text, StyleSheet, Switch, useColorScheme} from 'react-native';
 import {scaleFont, scaleHeight, scaleWidth} from '../../utils/Responsive';
+import {Colors} from '../../constants/Colors';
 
 interface SwitchRowProps {
   label: string;
@@ -9,9 +10,11 @@ interface SwitchRowProps {
 }
 
 const SwitchRow: React.FC<SwitchRowProps> = ({label, value, onValueChange}) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const colors = Colors(isDarkMode);
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={[styles.label, {color: colors.blackText}]}>{label}</Text>
       <Switch value={value} onValueChange={onValueChange} />
     </View>
   );

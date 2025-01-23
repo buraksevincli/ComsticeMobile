@@ -40,7 +40,9 @@ const TaskItem: React.FC<TaskItemProps> = ({task, onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View>
-        <Text style={styles.title}>{task.title}</Text>
+        <Text style={[styles.title, {color: colors.blackText}]}>
+          {task.title}
+        </Text>
         <Text style={[styles.dueDate, {color: colors.secondaryText}]}>
           {i18n.t('tasks.dueDate')}: {task.due_date}
         </Text>

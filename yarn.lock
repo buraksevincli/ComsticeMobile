@@ -2167,16 +2167,16 @@
   integrity sha512-x2N415pg4ZxIltArOKczPwn7JEYh+1OxQ4+hTnafomnMsqs65HZuEWcX+Ch8c5r8V83DiunuQUf5hWGWlw8hQQ==
 
 "@react-native-firebase/app@^21.6.1":
-  version "21.6.1"
-  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-21.6.1.tgz"
-  integrity sha512-o1i3aQMtJeofue+73j/8KO2l+/bRHaSHqOl7FtIeZfajQZaulaROugD2Rr2Mlc1o7LfEUyoDOoij9nGdrydEyw==
+  version "21.7.1"
+  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-21.7.1.tgz"
+  integrity sha512-sBXKJE+Uu2+G8SBQzUXMEIyWK932GqxfKsCAVOfzEegxknQuQ8l6qx/tIbMeEFuBJlo334GNctMa4ehePog5lQ==
   dependencies:
     firebase "10.13.2"
 
 "@react-native-firebase/messaging@^21.6.1":
-  version "21.6.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-21.6.1.tgz#95c45ad7ca81d9a88ce0bfee05ba3a2555c85058"
-  integrity sha512-WoMGcqflDyhwpe5saqJFNKcvRiGRhW764cNv9j9fca11rtzqw186/frvE+QDVuUBEeaOZJg7bW+BV19IToc92g==
+  version "21.7.1"
+  resolved "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-21.7.1.tgz"
+  integrity sha512-asLoTH/IZROTR/y82UpMqWGFly5TJf9Zvy+EqvgWMKhRWnAPxjC+UFHQeGwut95kg0zBj49H9F6yJ2gjdatOHg==
 
 "@react-native/assets-registry@0.76.5":
   version "0.76.5"

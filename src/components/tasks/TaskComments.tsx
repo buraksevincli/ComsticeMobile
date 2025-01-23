@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {View, Text, TextInput, StyleSheet, useColorScheme} from 'react-native';
 import {scaleFont, scaleHeight, scaleWidth} from '../../utils/Responsive';
 import i18n from '../../locales/i18n';
+import {Colors} from '../../constants/Colors';
 
 interface TaskCommentsProps {
   comments: string;
@@ -9,11 +10,13 @@ interface TaskCommentsProps {
 }
 
 const TaskComments: React.FC<TaskCommentsProps> = ({comments, setComments}) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const colors = Colors(isDarkMode);
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{i18n.t('tasks.comments')}:</Text>
       <TextInput
-        style={styles.textInput}
+        style={[styles.textInput, {color: colors.blackText}]}
         value={comments}
         onChangeText={setComments}
         multiline

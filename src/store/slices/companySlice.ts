@@ -6,6 +6,8 @@ interface CompanyState {
   version: string;
   logourl: string;
   loginWithSso: string;
+  token: string;
+  finesse1: string;
 }
 
 const initialState: CompanyState = {
@@ -14,6 +16,8 @@ const initialState: CompanyState = {
   version: '',
   logourl: '',
   loginWithSso: '',
+  token: '',
+  finesse1: '',
 };
 
 const companySlice = createSlice({
