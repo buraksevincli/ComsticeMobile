@@ -8,6 +8,7 @@ interface CompanyState {
   loginWithSso: string;
   token: string;
   finesse1: string;
+  crmurl: string;
 }
 
 const initialState: CompanyState = {
@@ -18,6 +19,7 @@ const initialState: CompanyState = {
   loginWithSso: '',
   token: '',
   finesse1: '',
+  crmurl: '',
 };
 
 const companySlice = createSlice({

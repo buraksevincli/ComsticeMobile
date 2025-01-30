@@ -41,6 +41,7 @@ const SettingsScreen: React.FC = () => {
           loginWithSso: data.loginWithSso,
           token: data.token,
           finesse1: data.finesse1,
+          crmurl: data.crmurl,
         }),
       );
       Alert.alert(

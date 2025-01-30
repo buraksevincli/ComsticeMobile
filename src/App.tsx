@@ -6,8 +6,10 @@ import {store} from './store/Store';
 import BootSplash from 'react-native-bootsplash';
 import {FirebaseMessagingService} from './services/FirebaseMessagingService';
 import {RNCallKeepService} from './services/RNCallKeepService';
-import {generateUUID} from './utils/UUID';
-import RNCallKeep from 'react-native-callkeep';
+// import {generateUUID} from './utils/UUID';
+// import RNCallKeep from 'react-native-callkeep';
+// import {ucceLoginService} from './services/UCCELoginService';
+// import xmppService from './services/XMPPService';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -22,7 +24,10 @@ const App: React.FC = () => {
 
       // Setup notification listeners
       FirebaseMessagingService.setupNotificationListeners();
+      // TODO: Test These Features
       // TestCall();
+      // ucceLoginService.finesseLogin('160114', 'Password1', '157037');
+      // xmppService.start();
     };
 
     init().finally(async () => {

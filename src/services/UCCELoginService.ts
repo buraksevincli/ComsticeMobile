@@ -6,7 +6,7 @@ const FINESSE_URL = 'https://ppg1.comstice.com:8445/finesse/api';
 export const ucceLoginService = {
   async finesseLogin(username: string, password: string, extension: string) {
     const url = `${FINESSE_URL}/User/${username}`;
-    const xmlBody = `
+    const xmlBodyMobileAgent = `
           <User>
             <state>LOGIN</state>
             <extension>${extension}</extension>
@@ -19,7 +19,7 @@ export const ucceLoginService = {
     const auth = btoa(`${username}:${password}`);
 
     try {
-      const response = await axios.put(url, xmlBody, {
+      const response = await axios.put(url, xmlBodyMobileAgent, {
         headers: {
           'Content-Type': 'application/xml',
           Authorization: `Basic ${auth}`,
