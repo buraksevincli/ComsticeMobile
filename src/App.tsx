@@ -9,7 +9,7 @@ import {RNCallKeepService} from './services/RNCallKeepService';
 // import {generateUUID} from './utils/UUID';
 // import RNCallKeep from 'react-native-callkeep';
 // import {ucceLoginService} from './services/UCCELoginService';
-// import xmppService from './services/XMPPService';
+// import XMPPService from './services/XMPPService';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -27,7 +27,7 @@ const App: React.FC = () => {
       // TODO: Test These Features
       // TestCall();
       // ucceLoginService.finesseLogin('160114', 'Password1', '157037');
-      // xmppService.start();
+      // XMPPService.startXmppConnection();
     };
 
     init().finally(async () => {

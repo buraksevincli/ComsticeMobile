@@ -1,88 +1,74 @@
-import {client, xml} from '@xmpp/client';
+import {client, xml, Client} from '@xmpp/client';
+import debug from '@xmpp/debug';
 
 class XmppService {
-  private xmppClient: any;
+  private static instance: XmppService;
+  private xmppClient: Client | null = null;
+  private isConnected = false;
 
-  constructor() {
-    this.xmppClient = client({
-      // service: 'wss://ppg1.comstice.com:5223/ws', // WebSocket
-      // service: 'https://ppg1.comstice.com:5223/http-bind', // BOSH
-      service: 'xmpps://ppg1.comstice.com:5222',
-      domain: 'ppg1.comstice.com',
-      username: '160114',
-      password: 'Password1',
-    });
+  private constructor() {}
 
-    this.setupListeners();
+  public static getInstance(): XmppService {
+    if (!XmppService.instance) {
+      XmppService.instance = new XmppService();
+    }
+    return XmppService.instance;
   }
 
-  private setupListeners() {
-    this.xmppClient.on('error', (err: any) => {
-      console.error('XMPP Error:', err);
-    });
+  public async startXmppConnection(): Promise<void> {
+    if (this.isConnected) {
+      console.log('XMPP already connected.');
+      return;
+    }
 
-    this.xmppClient.on('online', (address: any) => {
-      console.log('XMPP Online:', address.toString());
-      this.sendPresence();
-    });
-
-    this.xmppClient.on('offline', () => {
-      console.log('XMPP Offline');
-      setTimeout(() => {
-        this.start();
-      }, 5000);
-    });
-
-    this.xmppClient.on('stanza', (stanza: any) => {
-      console.log('Received stanza:', stanza.toString());
-      if (stanza.is('message')) {
-        const body = stanza.getChildText('body');
-        if (body) {
-          console.log('Message Body:', body);
-        }
-      }
-    });
-  }
-
-  public async start() {
     try {
-      console.log('Starting XMPP connection...');
+      this.xmppClient = client({
+        service: 'wss://uccx12.comsticeeu.local:5280/ws',
+        domain: 'uccx12.comsticeeu.local',
+        username: 'burakmobile',
+        password: '12345',
+      });
+
+      debug(this.xmppClient, true);
+
+      this.setupListeners();
+
       await this.xmppClient.start();
-      console.log('XMPP Connection Started');
+      this.isConnected = true;
+
+      console.log('✅ XMPP Connection started successfully!');
     } catch (error) {
-      console.error('Error starting XMPP client:', error);
+      console.error('❌ Error initializing XMPP client:', error);
     }
   }
 
-  public async stop() {
+  private setupListeners(): void {
+    if (!this.xmppClient) return;
+
+    this.xmppClient.on('error', err => console.error('❌ XMPP Error:', err));
+    this.xmppClient.on('offline', () => console.log('🔴 XMPP is offline'));
+    this.xmppClient.on('online', async address => {
+      console.log('✅ Connected as', address.toString());
+    });
+
+    this.xmppClient.on('stanza', async stanza => {
+      console.log('📩 Received stanza:', stanza.toString());
+    });
+  }
+
+  public async stopXmppConnection(): Promise<void> {
+    if (!this.isConnected || !this.xmppClient) {
+      console.log('XMPP is not connected.');
+      return;
+    }
     try {
       await this.xmppClient.stop();
-      console.log('XMPP Connection Stopped');
+      this.isConnected = false;
+      console.log('🔴 XMPP Connection stopped.');
     } catch (error) {
-      console.error('Error stopping XMPP client:', error);
+      console.error('❌ Error stopping XMPP client:', error);
     }
-  }
-
-  public sendMessage(to: string, message: string) {
-    try {
-      const messageStanza = xml(
-        'message',
-        {type: 'chat', to},
-        xml('body', {}, message),
-      );
-      this.xmppClient.send(messageStanza);
-      console.log('Message sent:', message);
-    } catch (error) {
-      console.error('Error sending message:', error);
-    }
-  }
-
-  private sendPresence() {
-    const presenceStanza = xml('presence', {}, xml('status', {}, 'Available'));
-    this.xmppClient.send(presenceStanza);
-    console.log('Presence sent');
   }
 }
 
-const xmppService = new XmppService();
-export default xmppService;
+export default XmppService.getInstance();
